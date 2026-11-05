@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirish — Sensorika Academy</title>
+<script type="text/javascript" nonce="31bb00992960494696ec2bbcbb5" src="//local.adguard.org?ts=1793880084889&amp;type=content-script&amp;dmn=api.netlify.com&amp;pth=%2Fapi%2Fv1%2Fdeploys%2F6a48e674135c7a1f4486b045%2Ffiles%2Flogin.html&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+<script type="text/javascript" nonce="31bb00992960494696ec2bbcbb5" src="//local.adguard.org?ts=1793880084889&amp;name=AdGuard%20Assistant&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script><link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="./index.html" class="brand">
+      <div class="robot-badge" style="width:38px;height:38px;border-radius:10px">
+        <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px"><rect x="5" y="8" width="14" height="11" rx="3" stroke="white" stroke-width="1.6"/><circle cx="9" cy="13" r="1.3" fill="white"/><circle cx="15" cy="13" r="1.3" fill="white"/><path d="M9 16.3h6" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      Sensorika<span style="color:var(--violet)">.</span>Academy
+    </a>
+    <div class="navactions">
+      <a href="./login.html" class="btn btn-line btn-sm">Kirish</a>
+      <a href="./register.html" class="btn btn-violet btn-sm">Ro'yxatdan o'tish</a>
+    </div>
+  </div>
+</nav>
+
+<div class="auth-shell">
+  <div class="auth-box">
+    <div class="auth-head">
+      <div class="mark">
+        <svg viewBox="0 0 24 24" fill="none" style="width:28px;height:28px"><rect x="5" y="8" width="14" height="11" rx="3" stroke="white" stroke-width="1.6"/><circle cx="9" cy="13" r="1.4" fill="white"/><circle cx="15" cy="13" r="1.4" fill="white"/><path d="M9 16.5h6" stroke="white" stroke-width="1.6" stroke-linecap="round"/><path d="M12 8V4" stroke="white" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="3" r="1.2" fill="white"/></svg>
+      </div>
+      <h1 class="disp">Xush kelibsiz</h1>
+      <p>Shaxsiy kabinetga kirish uchun ma'lumotlarni kiriting</p>
+    </div>
+
+    <div class="alert alert-bad" id="alert-error">Login yoki parol noto'g'ri. Qayta urinib ko'ring.</div>
+
+    <div class="fld">
+      <label>Foydalanuvchi nomi</label>
+      <div class="fld-wrap">
+        <span class="fld-icon">@</span>
+        <input type="text" class="inp_name" placeholder="Loginingizni kiriting">
+      </div>
+      <div class="fld-err" id="email-error">Loginni kiriting</div>
+    </div>
+
+    <div class="fld">
+      <label>Parol</label>
+      <div class="fld-wrap">
+        <span class="fld-icon">*</span>
+        <input type="password" id="password" class="parol_name" placeholder="Parolingizni kiriting">
+        <button type="button" class="fld-toggle" onclick="togglePw('password', this)">Ko'rsat</button>
+      </div>
+      <div class="fld-err" id="pw-error">Parolni kiriting</div>
+    </div>
+
+    <button class="btn btn-violet btn-full btn_add" type="button" onclick="handleLogin()">
+      Tizimga kirish
+    </button>
+
+    <div class="auth-foot">Hisobingiz yo'qmi? <a href="./register.html">Ro'yxatdan o'ting</a></div>
+  </div>
+</div>
+
+<script src="../js/js.js"></script>
+<script>
+(function(){
+  try { var sc=localStorage.getItem("site_colors"); if(sc){var c=JSON.parse(sc); if(c.violet){document.documentElement.style.setProperty("--violet",c.violet);document.documentElement.style.setProperty("--violet-light",c.violet+"cc");} if(c.indigo){document.documentElement.style.setProperty("--indigo",c.indigo);document.documentElement.style.setProperty("--indigo-deep",c.indigo);} if(c.coral)document.documentElement.style.setProperty("--coral",c.coral);}} catch(e){}
+  try { var bg=localStorage.getItem("site_bg"); if(bg){document.documentElement.style.setProperty("--paper",bg);document.documentElement.style.setProperty("--paper-dim",bg);document.body.style.backgroundColor=bg;}} catch(e){}
+  try { var tc=localStorage.getItem("site_text_colors"); if(tc){var t=JSON.parse(tc); if(t.main)document.documentElement.style.setProperty("--ink",t.main); if(t.soft)document.documentElement.style.setProperty("--ink-soft",t.soft); if(t.dim)document.documentElement.style.setProperty("--text-dim",t.dim);}} catch(e){}
+  document.addEventListener("DOMContentLoaded",function(){ try { var lg=localStorage.getItem("site_logo"); if(lg){var l=JSON.parse(lg); var grad="linear-gradient(135deg,"+l.c1+","+l.c2+")"; document.querySelectorAll(".robot-badge").forEach(function(el){el.style.background=grad;}); document.querySelectorAll(".brand-mark").forEach(function(el){el.style.background=grad;});}} catch(e){}});
+})();
+</script>
+</body>
+</html>

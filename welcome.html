@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shaxsiy kabinet — Sensorika Academy</title>
+<script type="text/javascript" nonce="31bb00992960494696ec2bbcbb5" src="//local.adguard.org?ts=1793880084889&amp;type=content-script&amp;dmn=api.netlify.com&amp;pth=%2Fapi%2Fv1%2Fdeploys%2F6a48e674135c7a1f4486b045%2Ffiles%2Fwelcome.html&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+<script type="text/javascript" nonce="31bb00992960494696ec2bbcbb5" src="//local.adguard.org?ts=1793880084889&amp;name=AdGuard%20Assistant&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script><link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="./welcome.html" class="brand">
+      <div class="robot-badge" style="width:38px;height:38px;border-radius:10px">
+        <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px"><rect x="5" y="8" width="14" height="11" rx="3" stroke="white" stroke-width="1.6"/><circle cx="9" cy="13" r="1.3" fill="white"/><circle cx="15" cy="13" r="1.3" fill="white"/><path d="M9 16.3h6" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      Sensorika<span style="color:var(--violet)">.</span>Academy
+    </a>
+    <ul class="navlinks">
+      <li><a href="#overview" class="cur" data-tab="overview">Umumiy holat</a></li>
+      <li><a href="#lessons" data-tab="lessons">Darslar</a></li>
+      <li><a href="#tests" data-tab="tests">Testlar</a></li>
+      <li><a href="#certificates" data-tab="certificates">Sertifikatlar</a></li>
+      <li><a href="#messages" data-tab="messages">Xabarlar</a></li>
+      <li><a href="#payments" data-tab="payments">To'lovlar</a></li>
+    </ul>
+    <div class="navactions">
+      <span id="user-name-nav" style="font-size:0.85rem; color:var(--text-dim); font-weight:600"></span>
+      <button class="btn btn-danger btn-sm" onclick="logout()">Chiqish</button>
+    </div>
+    <button class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobilemenu" id="mobile-menu">
+  <ul>
+    <li><a href="#overview" data-tab="overview">Umumiy holat</a></li>
+    <li><a href="#lessons" data-tab="lessons">Darslar</a></li>
+    <li><a href="#tests" data-tab="tests">Testlar</a></li>
+    <li><a href="#certificates" data-tab="certificates">Sertifikatlar</a></li>
+    <li><a href="#messages" data-tab="messages">Xabarlar</a></li>
+    <li><a href="#payments" data-tab="payments">To'lovlar</a></li>
+  </ul>
+  <button class="btn btn-danger btn-sm" onclick="logout()">Chiqish</button>
+</div>
+
+<div class="dash-shell">
+
+  <aside class="dash-side">
+    <div class="dash-user">
+      <div class="dash-avatar" id="cabinet-avatar">F</div>
+      <div class="dash-user-name disp" id="cabinet-name">Foydalanuvchi</div>
+      <div class="dash-user-id mono" id="cabinet-id">ID: 00000-USR</div>
+    </div>
+    <nav class="dash-nav">
+      <a href="#overview" data-tab="overview" class="cur">Umumiy holat</a>
+      <a href="#lessons" data-tab="lessons">Video darslar</a>
+      <a href="#tests" data-tab="tests">Testlar</a>
+      <a href="#certificates" data-tab="certificates">Sertifikatlarim</a>
+      <a href="#messages" data-tab="messages">Xabarlar</a>
+      <a href="#payments" data-tab="payments">To'lovlar tarixi</a>
+      <a href="#resume" data-tab="resume">Material yuklash</a>
+      <a href="#" onclick="logout()">Profildan chiqish</a>
+    </nav>
+  </aside>
+
+  <main class="dash-main">
+
+    <section class="dash-tab" id="tab-overview">
+      <div class="dash-greet">
+        <div style="display:flex; align-items:center; gap:18px">
+          <div class="robot-badge" style="width:54px;height:54px;border-radius:14px; flex-shrink:0">
+            <svg viewBox="0 0 24 24" fill="none" style="width:30px;height:30px"><rect x="5" y="8" width="14" height="11" rx="3" stroke="white" stroke-width="1.6"/><circle cx="9" cy="13" r="1.4" fill="white"/><circle cx="15" cy="13" r="1.4" fill="white"/><path d="M9 16.5h6" stroke="white" stroke-width="1.6" stroke-linecap="round"/><path d="M12 8V4" stroke="white" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="3" r="1.2" fill="white"/></svg>
+          </div>
+          <div>
+            <h2 class="disp">Xush kelibsiz, <span id="user-greeting">Foydalanuvchi</span></h2>
+            <p>Bugun sizda <strong style="color:#fff">1 dars</strong> va <strong style="color:#fff">2 o'qilmagan xabar</strong> bor</p>
+          </div>
+        </div>
+        <a href="#lessons" data-tab="lessons" class="btn btn-coral btn-sm">Darslarga o'tish</a>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="lbl">Balans</div>
+          <div class="val">2,400,000 so'm</div>
+          <div class="delta-up">To'lov holati: yaxshi</div>
+        </div>
+        <div class="stat-box">
+          <div class="lbl">Davomat</div>
+          <div class="val">92%</div>
+          <div class="delta-up">+4% shu oy</div>
+        </div>
+        <div class="stat-box">
+          <div class="lbl">O'rtacha baho</div>
+          <div class="val">94%</div>
+          <div class="delta-up">A'lo daraja</div>
+        </div>
+        <div class="stat-box">
+          <div class="lbl">Kurs progressi</div>
+          <div class="val">64%</div>
+          <div class="delta-down">18 dars qoldi</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3 class="disp">Yaqin darslar</h3>
+        <div class="row-item">
+          <div class="row-item-main">
+            <div class="row-icon">25</div>
+            <div>
+              <div class="row-title">Frontend-59 guruhi · Jumayev X.O.</div>
+              <div class="row-sub">2-qavat, audit. · 16:30 - 18:30</div>
+            </div>
+          </div>
+          <span class="badge badge-ok">Bugun</span>
+        </div>
+        <div class="row-item">
+          <div class="row-item-main">
+            <div class="row-icon">27</div>
+            <div>
+              <div class="row-title">Frontend-59 guruhi · Jumayev X.O.</div>
+              <div class="row-sub">2-qavat, audit. · 16:30 - 18:30</div>
+            </div>
+          </div>
+          <span class="badge badge-warn">Rejalashtirilgan</span>
+        </div>
+
+        <div class="cal-grid">
+          <div class="cal-day-name">Du</div><div class="cal-day-name">Se</div><div class="cal-day-name">Cho</div><div class="cal-day-name">Pa</div><div class="cal-day-name">Ju</div><div class="cal-day-name">Sha</div><div class="cal-day-name">Ya</div>
+          <div class="cal-cell">1</div><div class="cal-cell past">2</div><div class="cal-cell">3</div><div class="cal-cell past">4</div><div class="cal-cell">5</div><div class="cal-cell past">6</div><div class="cal-cell">7</div>
+          <div class="cal-cell">8</div><div class="cal-cell past">9</div><div class="cal-cell">10</div><div class="cal-cell past">11</div><div class="cal-cell">12</div><div class="cal-cell missed">13</div><div class="cal-cell">14</div>
+          <div class="cal-cell">15</div><div class="cal-cell past">16</div><div class="cal-cell">17</div><div class="cal-cell past">18</div><div class="cal-cell">19</div><div class="cal-cell past">20</div><div class="cal-cell">21</div>
+          <div class="cal-cell">22</div><div class="cal-cell past">23</div><div class="cal-cell">24</div><div class="cal-cell future">25</div><div class="cal-cell">26</div><div class="cal-cell future">27</div><div class="cal-cell">28</div>
+          <div class="cal-cell">29</div><div class="cal-cell future">30</div>
+        </div>
+        <div class="cal-legend">
+          <div class="cal-legend-item"><span class="cal-legend-dot" style="background:#ecfdf5; border:1px solid var(--ok)"></span>Bo'ladigan</div>
+          <div class="cal-legend-item"><span class="cal-legend-dot" style="background:var(--paper-dim); border:1px solid var(--violet)"></span>O'tilgan</div>
+          <div class="cal-legend-item"><span class="cal-legend-dot" style="background:var(--bad-bg); border:1px solid var(--bad)"></span>Qoldirilgan</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3 class="disp">Oylik natijalar</h3>
+        <div class="bars">
+          <div class="bar" style="height:80%"><span>80%</span></div>
+          <div class="bar" style="height:95%"><span>95%</span></div>
+          <div class="bar" style="height:70%"><span>70%</span></div>
+          <div class="bar" style="height:100%"><span>100%</span></div>
+          <div class="bar" style="height:60%"><span>60%</span></div>
+          <div class="bar" style="height:90%"><span>90%</span></div>
+        </div>
+        <div class="bar-labels">
+          <span>Yan</span><span>Fev</span><span>Mar</span><span>Apr</span><span>May</span><span>Iyun</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="dash-tab" id="tab-lessons" style="display:none">
+      <div class="panel">
+        <h3 class="disp">Video darslar — Front-End dasturlash</h3>
+        <div class="video-card" style="margin-bottom:20px">
+          <span class="tag">12-dars · 24:18</span>
+          <div class="playbtn">▶</div>
+        </div>
+        <div class="lessonlist">
+          <div class="lesson-item done"><div class="num">1</div><div class="ltitle">HTML asoslari va semantika</div><div class="ldur">18:42</div></div>
+          <div class="lesson-item done"><div class="num">2</div><div class="ltitle">CSS Flexbox va Grid</div><div class="ldur">26:10</div></div>
+          <div class="lesson-item done"><div class="num">3</div><div class="ltitle">JavaScript asoslari</div><div class="ldur">31:05</div></div>
+          <div class="lesson-item done"><div class="num">4</div><div class="ltitle">DOM bilan ishlash</div><div class="ldur">22:48</div></div>
+          <div class="lesson-item"><div class="num">5</div><div class="ltitle">Responsiv dizayn va media query</div><div class="ldur">24:18</div></div>
+          <div class="lesson-item"><div class="num">6</div><div class="ltitle">Forma validatsiyasi</div><div class="ldur">19:33</div></div>
+          <div class="lesson-item"><div class="num">7</div><div class="ltitle">API bilan ishlash (fetch)</div><div class="ldur">28:02</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dash-tab" id="tab-tests" style="display:none">
+      <div class="panel">
+        <h3 class="disp">Joriy test — 5-modul: Responsiv dizayn</h3>
+
+        <div class="test-q">
+          <div class="qtext">1. CSS Flexbox'da elementlarni gorizontal markazlashtirish uchun qaysi xususiyat ishlatiladi?</div>
+          <label class="test-opt"><input type="radio" name="q1"> justify-content: center</label>
+          <label class="test-opt"><input type="radio" name="q1"> align-items: center</label>
+          <label class="test-opt"><input type="radio" name="q1"> text-align: center</label>
+        </div>
+
+        <div class="test-q">
+          <div class="qtext">2. Media query qaysi maqsadda ishlatiladi?</div>
+          <label class="test-opt"><input type="radio" name="q2"> Ranglarni o'zgartirish uchun</label>
+          <label class="test-opt"><input type="radio" name="q2"> Ekran o'lchamiga moslashtirish uchun</label>
+          <label class="test-opt"><input type="radio" name="q2"> Animatsiya yaratish uchun</label>
+        </div>
+
+        <div class="test-q">
+          <div class="qtext">3. "rem" o'lchov birligi nimaga nisbatan hisoblanadi?</div>
+          <label class="test-opt"><input type="radio" name="q3"> Root elementning font-size'iga</label>
+          <label class="test-opt"><input type="radio" name="q3"> Ota elementning kengligiga</label>
+          <label class="test-opt"><input type="radio" name="q3"> Ekran kengligiga</label>
+        </div>
+
+        <button class="btn btn-violet" onclick="submitTest()">Testni yakunlash</button>
+        <div class="alert alert-ok" id="test-success">Test muvaffaqiyatli yuborildi. Natija tez orada e'lon qilinadi.</div>
+      </div>
+    </section>
+
+    <section class="dash-tab" id="tab-certificates" style="display:none">
+      <div class="panel">
+        <h3 class="disp">Sertifikatlarim</h3>
+        <div class="row-item">
+          <div class="row-item-main">
+            <div class="row-icon">PY</div>
+            <div>
+              <div class="row-title">Python dasturlash</div>
+              <div class="row-sub">ID: 40781104-BMX · 14.04.2025</div>
+            </div>
+          </div>
+          <a href="./vacancy.html?id=40781104-BMX" class="btn btn-line btn-sm">Ko'rish</a>
+        </div>
+        <div class="row-item">
+          <div class="row-item-main">
+            <div class="row-icon">FE</div>
+            <div>
+              <div class="row-title">Front-End dasturlash</div>
+              <div class="row-sub">Davom etmoqda · 64% tugallandi</div>
+            </div>
+          </div>
+          <div class="prog-track"><div class="prog-fill" style="width:64%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dash-tab" id="tab-messages" style="display:none">
+      <div class="panel" style="margin-bottom:20px">
+        <h3 class="disp">Bildirishnomalar</h3>
+        <div class="notif-item">
+          <div class="notif-dot"></div>
+          <div>
+            <div class="notif-text">5-modul testi ochildi. Yakunlash muddati: 30-iyun</div>
+            <div class="notif-time">2 soat oldin</div>
+          </div>
+        </div>
+        <div class="notif-item">
+          <div class="notif-dot"></div>
+          <div>
+            <div class="notif-text">Jumayev X.O. uy vazifasi bo'yicha izoh qoldirdi</div>
+            <div class="notif-time">5 soat oldin</div>
+          </div>
+        </div>
+        <div class="notif-item read">
+          <div class="notif-dot"></div>
+          <div>
+            <div class="notif-text">To'lov muvaffaqiyatli qabul qilindi — 1,200,000 so'm</div>
+            <div class="notif-time">2 kun oldin</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3 class="disp">O'qituvchi bilan suhbat</h3>
+        <div class="msg-box" id="chatBox">
+          <div class="msg-bubble in">Salom! 5-modul vazifasini topshirdingizmi?</div>
+          <div class="msg-bubble out">Salom, hali tugatmadim, ertaga topshiraman</div>
+          <div class="msg-bubble in">Mayli, kechikmang, muddat 30-iyun</div>
+        </div>
+        <div class="msg-input-row">
+          <input type="text" id="chatInput" placeholder="Xabar yozing...">
+          <button class="btn btn-violet btn-sm" onclick="sendChatMessage()">Yuborish</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="dash-tab" id="tab-payments" style="display:none">
+      <div class="panel">
+        <h3 class="disp">To'lovlar tarixi</h3>
+        <div class="row-item">
+          <div class="row-item-main">
+            <div class="row-icon">✓</div>
+            <div>
+              <div class="row-title">Oylik to'lov — Iyun</div>
+              <div class="row-sub">25.06.2026 · Click orqali</div>
+            </div>
+          </div>
+          <span class="badge badge-ok">1,200,000 so'm</span>
+        </div>
+        <div class="row-item">
+          <div class="row-item-main">
+            <div class="row-icon">✓</div>
+            <div>
+              <div class="row-title">Oylik to'lov — May</div>
+              <div class="row-sub">24.05.2026 · Payme orqali</div>
+            </div>
+          </div>
+          <span class="badge badge-ok">1,200,000 so'm</span>
+        </div>
+        <div class="row-item">
+          <div class="row-item-main">
+            <div class="row-icon">!</div>
+            <div>
+              <div class="row-title">Oylik to'lov — Iyul (kelgusi)</div>
+              <div class="row-sub">Muddati: 25.07.2026</div>
+            </div>
+          </div>
+          <span class="badge badge-warn">Kutilmoqda</span>
+        </div>
+        <button class="btn btn-violet btn-full" style="margin-top:16px">Onlayn to'lov qilish</button>
+      </div>
+    </section>
+
+    <section class="dash-tab" id="tab-resume" style="display:none">
+      <div class="panel">
+        <h3 class="disp">Material yuklash</h3>
+        <div class="upload-zone" id="dropZone" onclick="document.getElementById('resumeFile').click()">
+          <div class="ico">+</div>
+          <div class="t1">Faylni shu yerga tashlang yoki bosing</div>
+          <div class="t2">PDF, DOC, ZIP (maksimal 10MB) — uy vazifasi yoki loyiha</div>
+          <input type="file" id="resumeFile" style="display:none" onchange="handleResumeUpload(event)">
+        </div>
+        <div id="resumePreview"></div>
+        <button class="btn btn-violet btn-full" style="margin-top:16px" onclick="submitResume()">Yuborish</button>
+        <div class="alert alert-ok" id="resume-success">Material muvaffaqiyatli yuklandi.</div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none; padding-top:0">
+      <span>© 2026 Sensorika Academy. Barcha huquqlar himoyalangan.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/js.js"></script>
+<script>
+(function(){
+  try { var sc=localStorage.getItem("site_colors"); if(sc){var c=JSON.parse(sc); if(c.violet){document.documentElement.style.setProperty("--violet",c.violet);document.documentElement.style.setProperty("--violet-light",c.violet+"cc");} if(c.indigo){document.documentElement.style.setProperty("--indigo",c.indigo);document.documentElement.style.setProperty("--indigo-deep",c.indigo);} if(c.coral)document.documentElement.style.setProperty("--coral",c.coral);}} catch(e){}
+  try { var bg=localStorage.getItem("site_bg"); if(bg){document.documentElement.style.setProperty("--paper",bg);document.documentElement.style.setProperty("--paper-dim",bg);document.body.style.backgroundColor=bg;}} catch(e){}
+  try { var tc=localStorage.getItem("site_text_colors"); if(tc){var t=JSON.parse(tc); if(t.main)document.documentElement.style.setProperty("--ink",t.main); if(t.soft)document.documentElement.style.setProperty("--ink-soft",t.soft); if(t.dim)document.documentElement.style.setProperty("--text-dim",t.dim);}} catch(e){}
+  document.addEventListener("DOMContentLoaded",function(){ try { var lg=localStorage.getItem("site_logo"); if(lg){var l=JSON.parse(lg); var grad="linear-gradient(135deg,"+l.c1+","+l.c2+")"; document.querySelectorAll(".robot-badge").forEach(function(el){el.style.background=grad;}); document.querySelectorAll(".brand-mark").forEach(function(el){el.style.background=grad;});}} catch(e){}});
+})();
+</script>
+</body>
+</html>

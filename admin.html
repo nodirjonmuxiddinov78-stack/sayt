@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel — Sensorika Academy</title>
+<script type="text/javascript" nonce="31bb00992960494696ec2bbcbb5" src="//local.adguard.org?ts=1793880084889&amp;type=content-script&amp;dmn=api.netlify.com&amp;pth=%2Fapi%2Fv1%2Fdeploys%2F6a48e674135c7a1f4486b045%2Ffiles%2Fadmin.html&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+<script type="text/javascript" nonce="31bb00992960494696ec2bbcbb5" src="//local.adguard.org?ts=1793880084889&amp;name=AdGuard%20Assistant&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script><link rel="stylesheet" href="../css/style.css">
+<script src="../js/data.js"></script>
+<style>
+  body { background: #0d0b16; min-height: 100vh; }
+
+  .admin-login-wrap {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #0d0b16 0%, #1a1033 100%);
+  }
+  .admin-login-box {
+    background: #181527; border: 1px solid #2c2745; border-radius: 20px;
+    padding: 44px 40px; width: 100%; max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+  }
+  .admin-login-logo { text-align: center; margin-bottom: 28px; }
+  .admin-login-logo .mark {
+    width: 60px; height: 60px; border-radius: 16px;
+    background: linear-gradient(135deg, #4c2f9e, #8b5cf6);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 14px; font-size: 1.6rem;
+  }
+  .admin-login-logo h1 { font-family:'Space Grotesk',sans-serif; font-size:1.4rem; font-weight:700; color:#f4f2fa; margin-bottom:4px; }
+  .admin-login-logo p { font-size:0.84rem; color:#6e6790; }
+  .admin-fld { margin-bottom: 16px; }
+  .admin-fld label { display:block; font-size:0.84rem; font-weight:600; color:#a39cc0; margin-bottom:7px; }
+  .admin-fld input {
+    width:100%; background:#0d0b16; border:1.5px solid #2c2745; border-radius:11px;
+    padding:12px 16px; font-size:0.94rem; color:#f4f2fa; outline:none;
+    font-family:'Inter',sans-serif; transition:all 0.15s;
+  }
+  .admin-fld input:focus { border-color:#8b5cf6; box-shadow:0 0 0 3px rgba(139,92,246,0.15); }
+  .admin-err { background:#341515; color:#f87171; padding:11px 14px; border-radius:10px; font-size:0.84rem; margin-bottom:14px; display:none; font-weight:500; }
+  .admin-btn {
+    width:100%; background:#8b5cf6; color:#fff; border:none; border-radius:11px;
+    padding:13px; font-size:0.94rem; font-weight:700; cursor:pointer;
+    font-family:'Inter',sans-serif; transition:all 0.18s; margin-top:4px;
+  }
+  .admin-btn:hover { background:#6d28d9; transform:translateY(-1px); }
+
+  #admin-dashboard { display:none; }
+  .admin-topbar {
+    background:#181527; border-bottom:1px solid #2c2745; padding:0 28px;
+    height:64px; display:flex; align-items:center; justify-content:space-between;
+    position:sticky; top:0; z-index:100;
+  }
+  .admin-topbar-brand { display:flex; align-items:center; gap:10px; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.1rem; color:#f4f2fa; }
+  .admin-topbar-brand .mark { width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,#4c2f9e,#8b5cf6); display:flex; align-items:center; justify-content:center; font-size:1rem; }
+  .admin-topbar-right { display:flex; align-items:center; gap:12px; }
+  .admin-user-badge { background:#1c1830; border:1px solid #2c2745; border-radius:99px; padding:6px 14px; font-size:0.82rem; color:#a39cc0; font-weight:500; display:flex; align-items:center; gap:8px; }
+  .admin-user-badge .dot { width:8px; height:8px; border-radius:50%; background:#34d399; }
+  .admin-logout-btn { background:transparent; border:1.5px solid #2c2745; border-radius:9px; padding:7px 14px; font-size:0.82rem; font-weight:600; color:#f87171; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+  .admin-logout-btn:hover { background:#341515; border-color:#f87171; }
+  .back-to-site { background:transparent; border:1.5px solid #2c2745; border-radius:9px; padding:7px 14px; font-size:0.82rem; font-weight:600; color:#8b5cf6; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; text-decoration:none; }
+  .back-to-site:hover { background:rgba(139,92,246,0.1); border-color:#8b5cf6; }
+
+  .admin-body { display:grid; grid-template-columns:230px 1fr; min-height:calc(100vh - 64px); }
+  .admin-sidebar { background:#161325; border-right:1px solid #2c2745; padding:24px 14px; }
+  .sidebar-section-label { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:#6e6790; font-weight:700; padding:0 10px; margin:18px 0 8px; }
+  .sidebar-section-label:first-child { margin-top:0; }
+  .sidebar-link { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:10px; font-size:0.86rem; font-weight:500; color:#a39cc0; cursor:pointer; transition:all 0.15s; margin-bottom:2px; border:none; background:transparent; width:100%; text-align:left; font-family:'Inter',sans-serif; }
+  .sidebar-link:hover { background:#1c1830; color:#f4f2fa; }
+  .sidebar-link.active { background:rgba(139,92,246,0.15); color:#8b5cf6; font-weight:600; }
+  .sidebar-link .ico { font-size:1rem; width:20px; text-align:center; }
+
+  .admin-content { padding:32px; background:#0d0b16; }
+  .admin-page { display:none; }
+  .admin-page.active { display:block; }
+  .admin-page-title { font-family:'Space Grotesk',sans-serif; font-size:1.5rem; font-weight:700; color:#f4f2fa; margin-bottom:8px; }
+  .admin-page-sub { font-size:0.88rem; color:#6e6790; margin-bottom:28px; }
+
+  .settings-card { background:#181527; border:1px solid #2c2745; border-radius:16px; padding:28px; margin-bottom:20px; }
+  .settings-card h3 { font-family:'Space Grotesk',sans-serif; font-size:1rem; font-weight:700; color:#f4f2fa; margin-bottom:6px; display:flex; align-items:center; gap:8px; }
+  .settings-card .desc { font-size:0.83rem; color:#6e6790; margin-bottom:22px; }
+  .settings-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .settings-row.cols3 { grid-template-columns:1fr 1fr 1fr; }
+  .set-fld label { display:block; font-size:0.83rem; font-weight:600; color:#a39cc0; margin-bottom:7px; }
+  .set-fld input, .set-fld select { width:100%; background:#0d0b16; border:1.5px solid #2c2745; border-radius:10px; padding:11px 14px; font-size:0.9rem; color:#f4f2fa; outline:none; font-family:'Inter',sans-serif; transition:all 0.15s; }
+  .set-fld input:focus, .set-fld select:focus { border-color:#8b5cf6; box-shadow:0 0 0 3px rgba(139,92,246,0.12); }
+  .set-fld input[type="color"] { padding:5px 8px; height:46px; cursor:pointer; border-radius:10px; }
+  .save-btn { background:#8b5cf6; color:#fff; border:none; border-radius:10px; padding:11px 24px; font-size:0.88rem; font-weight:700; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.18s; margin-top:18px; display:inline-flex; align-items:center; gap:7px; }
+  .save-btn:hover { background:#6d28d9; transform:translateY(-1px); }
+  .save-ok { background:#0f2e22; color:#34d399; padding:10px 16px; border-radius:9px; font-size:0.84rem; font-weight:600; margin-top:12px; display:none; }
+
+  .live-preview {
+    border:1px solid #2c2745; border-radius:12px; padding:16px; background:#0d0b16;
+    margin-top:16px;
+  }
+  .live-preview-label { font-size:0.74rem; color:#6e6790; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.06em; }
+  .preview-nav { display:flex; align-items:center; gap:10px; padding:10px 14px; border-radius:10px; margin-bottom:8px; }
+  .preview-logo-mark { width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.8rem; }
+  .preview-logo-text { font-weight:700; font-size:0.9rem; }
+  .preview-body { padding:14px; border-radius:10px; }
+  .preview-heading { font-weight:700; font-size:1rem; margin-bottom:6px; }
+  .preview-text { font-size:0.78rem; opacity:0.7; }
+
+  .color-swatch-row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px; }
+  .swatch-wrap { text-align:center; cursor:pointer; }
+  .swatch-wrap:hover .color-swatch { transform:scale(1.15); }
+  .color-swatch { width:38px; height:38px; border-radius:10px; border:2px solid rgba(255,255,255,0.15); transition:transform 0.15s; }
+  .color-swatch-label { font-size:0.68rem; color:#6e6790; margin-top:3px; }
+
+  .stat-cards { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:24px; }
+  .stat-c { background:#181527; border:1px solid #2c2745; border-radius:14px; padding:20px; }
+  .stat-c .lbl { font-size:0.74rem; color:#6e6790; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.05em; }
+  .stat-c .val { font-family:'Space Grotesk',sans-serif; font-size:1.6rem; font-weight:700; color:#f4f2fa; }
+  .stat-c .ico-big { font-size:1.4rem; margin-bottom:8px; }
+
+  .password-strength { height:4px; border-radius:99px; margin-top:8px; background:#2c2745; overflow:hidden; }
+  .password-strength-fill { height:100%; border-radius:99px; transition:all 0.3s; width:0; }
+
+  @media(max-width:768px) {
+    .admin-body { grid-template-columns:1fr; }
+    .admin-sidebar { border-right:none; border-bottom:1px solid #2c2745; }
+    .settings-row { grid-template-columns:1fr; }
+    .settings-row.cols3 { grid-template-columns:1fr; }
+    .stat-cards { grid-template-columns:1fr 1fr; }
+  }
+  @media(max-width:480px) {
+    .stat-cards { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="admin-login" class="admin-login-wrap">
+  <div class="admin-login-box">
+    <div class="admin-login-logo">
+      <div class="mark">🔐</div>
+      <h1>Admin Panel</h1>
+      <p>Sensorika Academy boshqaruv tizimi</p>
+    </div>
+    <div class="admin-err" id="login-err">Login yoki parol noto'g'ri!</div>
+    <div class="admin-fld">
+      <label>Login</label>
+      <input type="text" id="admin-login-input" placeholder="Login kiriting" autocomplete="username">
+    </div>
+    <div class="admin-fld">
+      <label>Parol</label>
+      <input type="password" id="admin-pass-input" placeholder="Parol kiriting" autocomplete="current-password"
+        onkeydown="if(event.key==='Enter') doAdminLogin()">
+    </div>
+    <button class="admin-btn" onclick="doAdminLogin()">🔓 Kirish</button>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="admin-dashboard">
+  <div class="admin-topbar">
+    <div class="admin-topbar-brand">
+      <div class="mark">🤖</div>
+      Sensorika<span style="color:#8b5cf6">.</span>Admin
+    </div>
+    <div class="admin-topbar-right">
+      <a href="./index.html" class="back-to-site">🌐 Saytga qaytish</a>
+      <div class="admin-user-badge"><span class="dot"></span><span id="topbar-username">Admin</span></div>
+      <button class="admin-logout-btn" onclick="doLogout()">Chiqish</button>
+    </div>
+  </div>
+
+  <div class="admin-body">
+    <div class="admin-sidebar">
+      <div class="sidebar-section-label">Umumiy</div>
+      <button class="sidebar-link active" onclick="showPage('overview',this)"><span class="ico">📊</span>Ko'rinish</button>
+      <button class="sidebar-link" onclick="showPage('students',this)"><span class="ico">🎓</span>O'quvchilar</button>
+      <div class="sidebar-section-label">Sayt dizayni</div>
+      <button class="sidebar-link" onclick="showPage('colors',this)"><span class="ico">🎨</span>Ranglar</button>
+      <button class="sidebar-link" onclick="showPage('background',this)"><span class="ico">🖼️</span>Orqa fon</button>
+      <button class="sidebar-link" onclick="showPage('logo',this)"><span class="ico">✨</span>Logo rangi</button>
+      <button class="sidebar-link" onclick="showPage('textcolors',this)"><span class="ico">🔤</span>Yozuvlar rangi</button>
+      <div class="sidebar-section-label">Xavfsizlik</div>
+      <button class="sidebar-link" onclick="showPage('cabinet',this)"><span class="ico">🔑</span>Kabinet paroli</button>
+      <button class="sidebar-link" onclick="showPage('admin-pass',this)"><span class="ico">🛡️</span>Admin paroli</button>
+    </div>
+
+    <div class="admin-content">
+
+      <!-- OVERVIEW -->
+      <div class="admin-page active" id="page-overview">
+        <div class="admin-page-title">👋 Xush kelibsiz!</div>
+        <div class="admin-page-sub">Sensorika Academy boshqaruv markazi</div>
+        <div class="stat-cards">
+          <div class="stat-c"><div class="ico-big">🎓</div><div class="lbl">O'quvchilar</div><div class="val">4,200+</div></div>
+          <div class="stat-c"><div class="ico-big">📚</div><div class="lbl">Faol kurslar</div><div class="val">38</div></div>
+          <div class="stat-c"><div class="ico-big">📜</div><div class="lbl">Sertifikatlar</div><div class="val">3,817</div></div>
+          <div class="stat-c"><div class="ico-big">🏢</div><div class="lbl">Filiallar</div><div class="val">3</div></div>
+        </div>
+        <div class="settings-card">
+          <h3>⚡ Tezkor harakatlar</h3>
+          <div class="desc">Eng ko'p ishlatiladigan sozlamalar</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="sidebar-link" style="background:#1c1830;border:1px solid #2c2745;border-radius:10px;padding:12px 18px;width:auto" onclick="showPage('students',document.querySelector('[onclick*=students]'))">🎓 O'quvchilar</button>
+            <button class="sidebar-link" style="background:#1c1830;border:1px solid #2c2745;border-radius:10px;padding:12px 18px;width:auto" onclick="showPage('colors',document.querySelector('[onclick*=colors]'))">🎨 Ranglar</button>
+            <button class="sidebar-link" style="background:#1c1830;border:1px solid #2c2745;border-radius:10px;padding:12px 18px;width:auto" onclick="showPage('background',document.querySelector('[onclick*=background]'))">🖼️ Orqa fon</button>
+            <button class="sidebar-link" style="background:#1c1830;border:1px solid #2c2745;border-radius:10px;padding:12px 18px;width:auto" onclick="showPage('logo',document.querySelector('[onclick*=logo]'))">✨ Logo</button>
+            <button class="sidebar-link" style="background:#1c1830;border:1px solid #2c2745;border-radius:10px;padding:12px 18px;width:auto" onclick="showPage('textcolors',document.querySelector('[onclick*=textcolors]'))">🔤 Yozuvlar</button>
+            <button class="sidebar-link" style="background:#1c1830;border:1px solid #2c2745;border-radius:10px;padding:12px 18px;width:auto" onclick="showPage('cabinet',document.querySelector('[onclick*=cabinet]'))">🔑 Kabinet paroli</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STUDENTS / GRADING -->
+      <div class="admin-page" id="page-students">
+        <div class="admin-page-title">🎓 O'quvchilarni baholash</div>
+        <div class="admin-page-sub">10 ballik sistemada baho qo'ying — o'zgarishlar saytda darhol ko'rinadi</div>
+
+        <div class="settings-card" style="padding:18px 22px">
+          <input type="text" id="student-search-admin" placeholder="🔍 Ism, ID yoki kurs bo'yicha qidirish..."
+            style="width:100%;background:#0d0b16;border:1.5px solid #2c2745;border-radius:10px;padding:11px 16px;font-size:0.9rem;color:#f4f2fa;outline:none;font-family:'Inter',sans-serif"
+            oninput="renderAdminStudentsList(this.value)">
+        </div>
+
+        <div id="admin-students-list" style="display:flex;flex-direction:column;gap:12px;margin-top:18px;"></div>
+      </div>
+
+      <!-- COLORS -->
+      <div class="admin-page" id="page-colors">
+        <div class="admin-page-title">🎨 Asosiy ranglar</div>
+        <div class="admin-page-sub">Saytning asosiy brand ranglarini o'zgartiring</div>
+
+        <div class="settings-card">
+          <h3>🖌️ Tayyor rang sxemalari</h3>
+          <div class="desc">Bir bosish bilan tayyor sxema tanlang</div>
+          <div class="color-swatch-row">
+            <div class="swatch-wrap" onclick="applyTheme('violet')">
+              <div class="color-swatch" style="background:linear-gradient(135deg,#4c2f9e,#8b5cf6)"></div>
+              <div class="color-swatch-label">Violet</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyTheme('blue')">
+              <div class="color-swatch" style="background:linear-gradient(135deg,#1d4ed8,#3b82f6)"></div>
+              <div class="color-swatch-label">Ko'k</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyTheme('green')">
+              <div class="color-swatch" style="background:linear-gradient(135deg,#065f46,#10b981)"></div>
+              <div class="color-swatch-label">Yashil</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyTheme('gold')">
+              <div class="color-swatch" style="background:linear-gradient(135deg,#92400e,#f59e0b)"></div>
+              <div class="color-swatch-label">Oltin</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyTheme('pink')">
+              <div class="color-swatch" style="background:linear-gradient(135deg,#9d174d,#ec4899)"></div>
+              <div class="color-swatch-label">Pushti</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyTheme('cyan')">
+              <div class="color-swatch" style="background:linear-gradient(135deg,#0e7490,#06b6d4)"></div>
+              <div class="color-swatch-label">Moviy</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyTheme('fire')">
+              <div class="color-swatch" style="background:linear-gradient(135deg,#dc2626,#fb5607)"></div>
+              <div class="color-swatch-label">Olov</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <h3>🔧 Maxsus ranglar</h3>
+          <div class="desc">Har bir rangni alohida o'rnating</div>
+          <div class="settings-row cols3">
+            <div class="set-fld">
+              <label>Asosiy rang (violet)</label>
+              <input type="color" id="color-violet" value="#8b5cf6" oninput="updatePreview()">
+            </div>
+            <div class="set-fld">
+              <label>Chuqur rang (indigo)</label>
+              <input type="color" id="color-indigo" value="#4c2f9e" oninput="updatePreview()">
+            </div>
+            <div class="set-fld">
+              <label>Accent rang (coral)</label>
+              <input type="color" id="color-coral" value="#fb5607" oninput="updatePreview()">
+            </div>
+          </div>
+          <div class="live-preview">
+            <div class="live-preview-label">Ko'rinish namunasi</div>
+            <div id="prev-nav" class="preview-nav" style="background:#181527">
+              <div id="prev-logo-mark" class="preview-logo-mark" style="background:linear-gradient(135deg,#4c2f9e,#8b5cf6)">🤖</div>
+              <span id="prev-logo-text" class="preview-logo-text" style="color:#f4f2fa">Sensorika<span id="prev-dot" style="color:#8b5cf6">.</span>Academy</span>
+              <div style="margin-left:auto;display:flex;gap:8px">
+                <div id="prev-btn1" style="background:transparent;border:1.5px solid #2c2745;border-radius:8px;padding:5px 12px;font-size:0.76rem;color:#f4f2fa">Kirish</div>
+                <div id="prev-btn2" style="border-radius:8px;padding:5px 12px;font-size:0.76rem;color:#fff;font-weight:600;background:#8b5cf6">Ro'yxat</div>
+              </div>
+            </div>
+            <div id="prev-body" class="preview-body" style="background:#1a1033">
+              <div id="prev-heading" class="preview-heading" style="color:#f4f2fa">Sun'iy intellekt va dasturlash</div>
+              <div id="prev-text" class="preview-text" style="color:#a39cc0">Sensorika Academy — AI, dasturlash va dizayn yo'nalishlarida real loyihalar bilan o'qitadigan akademiya.</div>
+              <div style="margin-top:10px">
+                <div id="prev-coral-btn" style="display:inline-block;border-radius:8px;padding:7px 14px;font-size:0.78rem;color:#fff;font-weight:600;background:#fb5607">Ro'yxatdan o'tish</div>
+              </div>
+            </div>
+          </div>
+          <button class="save-btn" onclick="saveColors()">💾 Ranglarni saqlash</button>
+          <div class="save-ok" id="color-ok">✅ Ranglar saqlandi!</div>
+        </div>
+      </div>
+
+      <!-- BACKGROUND -->
+      <div class="admin-page" id="page-background">
+        <div class="admin-page-title">🖼️ Orqa fon rangi</div>
+        <div class="admin-page-sub">Saytning asosiy fon (background) rangini o'zgartiring</div>
+        <div class="settings-card">
+          <h3>🌑 Fon rangi</h3>
+          <div class="desc">Sayt orqa fon rangini tanlang</div>
+          <div class="color-swatch-row">
+            <div class="swatch-wrap" onclick="applyBg('#0d0b16')">
+              <div class="color-swatch" style="background:#0d0b16;border-color:#444"></div>
+              <div class="color-swatch-label">Qora (asl)</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyBg('#05101f')">
+              <div class="color-swatch" style="background:#05101f;border-color:#444"></div>
+              <div class="color-swatch-label">Ko'k-qora</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyBg('#0f0a1a')">
+              <div class="color-swatch" style="background:#0f0a1a;border-color:#444"></div>
+              <div class="color-swatch-label">Binafsha-qora</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyBg('#0a1628')">
+              <div class="color-swatch" style="background:#0a1628;border-color:#444"></div>
+              <div class="color-swatch-label">Chuqur ko'k</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyBg('#111827')">
+              <div class="color-swatch" style="background:#111827;border-color:#444"></div>
+              <div class="color-swatch-label">Kulrang-qora</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyBg('#0a0f0a')">
+              <div class="color-swatch" style="background:#0a0f0a;border-color:#444"></div>
+              <div class="color-swatch-label">Yashil-qora</div>
+            </div>
+          </div>
+          <div class="set-fld" style="max-width:280px">
+            <label>Yoki maxsus rang kiriting</label>
+            <div style="display:flex;gap:10px;align-items:center">
+              <input type="color" id="bg-color-pick" value="#0d0b16" oninput="applyBg(this.value)">
+              <input type="text" id="bg-color-text" value="#0d0b16" placeholder="#0d0b16" oninput="applyBg(this.value)" style="flex:1">
+            </div>
+          </div>
+          <div class="live-preview" style="margin-top:16px">
+            <div class="live-preview-label">Ko'rinish</div>
+            <div id="bg-preview" style="height:80px;border-radius:10px;background:#0d0b16;border:1px solid #2c2745;display:flex;align-items:center;justify-content:center">
+              <span style="color:#f4f2fa;font-size:0.82rem;opacity:0.6">Sayt foni shunday ko'rinadi</span>
+            </div>
+          </div>
+          <button class="save-btn" onclick="saveBg()">💾 Fonni saqlash</button>
+          <div class="save-ok" id="bg-ok">✅ Fon rangi saqlandi!</div>
+        </div>
+      </div>
+
+      <!-- LOGO COLOR -->
+      <div class="admin-page" id="page-logo">
+        <div class="admin-page-title">✨ Logo rangi</div>
+        <div class="admin-page-sub">Sayt logosi va brand belgisi rangini o'zgartiring</div>
+        <div class="settings-card">
+          <h3>🎨 Logo gradient rangi</h3>
+          <div class="desc">Logoning kvadrat belgisi gradient rangini sozlang</div>
+          <div class="settings-row">
+            <div class="set-fld">
+              <label>Gradient boshi</label>
+              <input type="color" id="logo-color1" value="#4c2f9e" oninput="updateLogoPreview()">
+            </div>
+            <div class="set-fld">
+              <label>Gradient oxiri</label>
+              <input type="color" id="logo-color2" value="#8b5cf6" oninput="updateLogoPreview()">
+            </div>
+            <div class="set-fld">
+              <label>Nuqta rangi (dot)</label>
+              <input type="color" id="logo-dot" value="#8b5cf6" oninput="updateLogoPreview()">
+            </div>
+          </div>
+          <div class="live-preview">
+            <div class="live-preview-label">Logo ko'rinishi</div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px">
+              <div id="logo-prev-mark" style="width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#4c2f9e,#8b5cf6);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem">🤖</div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:#f4f2fa">
+                Sensorika<span id="logo-prev-dot" style="color:#8b5cf6">.</span>Academy
+              </div>
+            </div>
+          </div>
+          <button class="save-btn" onclick="saveLogo()">💾 Logo rangini saqlash</button>
+          <div class="save-ok" id="logo-ok">✅ Logo rangi saqlandi!</div>
+        </div>
+
+        <div class="settings-card">
+          <h3>🌟 Tayyor logo ranglari</h3>
+          <div class="desc">Bir bosish bilan tayyor logo gradientini tanlang</div>
+          <div class="color-swatch-row">
+            <div class="swatch-wrap" onclick="applyLogoTheme('#4c2f9e','#8b5cf6','#8b5cf6')">
+              <div class="color-swatch" style="background:linear-gradient(135deg,#4c2f9e,#8b5cf6)"></div>
+              <div class="color-swatch-label">Violet</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyLogoTheme('#1d4ed8','#3b82f6','#3b82f6')">
+              <div class="color-swatch" style="background:linear-gradient(135deg,#1d4ed8,#3b82f6)"></div>
+              <div class="color-swatch-label">Ko'k</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyLogoTheme('#065f46','#10b981','#10b981')">
+              <div class="color-swatch" style="background:linear-gradient(135deg,#065f46,#10b981)"></div>
+              <div class="color-swatch-label">Yashil</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyLogoTheme('#92400e','#f59e0b','#f59e0b')">
+              <div class="color-swatch" style="background:linear-gradient(135deg,#92400e,#f59e0b)"></div>
+              <div class="color-swatch-label">Oltin</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyLogoTheme('#9d174d','#ec4899','#ec4899')">
+              <div class="color-swatch" style="background:linear-gradient(135deg,#9d174d,#ec4899)"></div>
+              <div class="color-swatch-label">Pushti</div>
+            </div>
+            <div class="swatch-wrap" onclick="applyLogoTheme('#dc2626','#fb5607','#fb5607')">
+              <div class="color-swatch" style="background:linear-gradient(135deg,#dc2626,#fb5607)"></div>
+              <div class="color-swatch-label">Olov</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEXT COLORS -->
+      <div class="admin-page" id="page-textcolors">
+        <div class="admin-page-title">🔤 Yozuvlar rangi</div>
+        <div class="admin-page-sub">Sayt bo'ylab yozuvlar rangini o'zgartiring</div>
+        <div class="settings-card">
+          <h3>📝 Asosiy yozuv ranglari</h3>
+          <div class="desc">Saytdagi asosiy, ikkilamchi va uchinchi darajali yozuvlar rangi</div>
+          <div class="settings-row cols3">
+            <div class="set-fld">
+              <label>Asosiy yozuv (sarlavhalar)</label>
+              <input type="color" id="text-main" value="#f4f2fa" oninput="updateTextPreview()">
+            </div>
+            <div class="set-fld">
+              <label>Ikkilamchi yozuv</label>
+              <input type="color" id="text-soft" value="#d8d4e8" oninput="updateTextPreview()">
+            </div>
+            <div class="set-fld">
+              <label>Xira yozuv (tavsif)</label>
+              <input type="color" id="text-dim" value="#a39cc0" oninput="updateTextPreview()">
+            </div>
+          </div>
+          <div class="live-preview">
+            <div class="live-preview-label">Yozuv namunasi</div>
+            <div style="padding:14px;background:#0d0b16;border-radius:10px">
+              <div id="tprev-main" style="font-size:1.2rem;font-weight:700;color:#f4f2fa;margin-bottom:6px">Asosiy sarlavha matni</div>
+              <div id="tprev-soft" style="font-size:0.9rem;color:#d8d4e8;margin-bottom:6px">Ikkilamchi matn — kurslar, bo'limlar</div>
+              <div id="tprev-dim" style="font-size:0.82rem;color:#a39cc0">Tavsif va ko'rsatmalar uchun xira matn</div>
+            </div>
+          </div>
+          <button class="save-btn" onclick="saveTextColors()">💾 Yozuv ranglarini saqlash</button>
+          <div class="save-ok" id="text-ok">✅ Yozuv ranglari saqlandi!</div>
+        </div>
+
+        <div class="settings-card">
+          <h3>🌈 Tayyor rang sxemalari</h3>
+          <div class="desc">Qoraga mos yoki ochiq rejim uchun tayyor sxemalar</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button onclick="applyTextTheme('#f4f2fa','#d8d4e8','#a39cc0')" class="save-btn" style="margin-top:0;background:#2c2745">🌙 Qorang'i</button>
+            <button onclick="applyTextTheme('#1a1033','#3d3460','#6b6090')" class="save-btn" style="margin-top:0;background:linear-gradient(135deg,#f3f0ff,#d8d0f0);color:#1a1033">☀️ Yorqin</button>
+            <button onclick="applyTextTheme('#e2e8f0','#94a3b8','#64748b')" class="save-btn" style="margin-top:0;background:#1e293b">🌫️ Kulrang</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CABINET PASSWORD -->
+      <div class="admin-page" id="page-cabinet">
+        <div class="admin-page-title">🔑 Kabinet paroli</div>
+        <div class="admin-page-sub">O'quvchilarning shaxsiy kabineti uchun parolni o'zgartiring</div>
+        <div class="settings-card">
+          <h3>🔒 Parolni o'zgartirish</h3>
+          <div class="desc">Yangi parol kamida 6 ta belgidan iborat bo'lsin</div>
+          <div class="settings-row" style="grid-template-columns:1fr">
+            <div class="set-fld">
+              <label>Joriy parol</label>
+              <input type="password" id="cab-old" placeholder="Joriy parolni kiriting">
+            </div>
+            <div class="set-fld">
+              <label>Yangi parol</label>
+              <input type="password" id="cab-new" placeholder="Yangi parol" oninput="checkPassStr(this.value,'cab-str')">
+              <div class="password-strength"><div class="password-strength-fill" id="cab-str"></div></div>
+            </div>
+            <div class="set-fld">
+              <label>Yangi parolni tasdiqlang</label>
+              <input type="password" id="cab-confirm" placeholder="Parolni qayta kiriting">
+            </div>
+          </div>
+          <div class="admin-err" id="cab-err" style="display:none;margin-top:12px"></div>
+          <button class="save-btn" onclick="saveCabinetPass()">🔑 Parolni yangilash</button>
+          <div class="save-ok" id="cab-ok">✅ Kabinet paroli o'zgartirildi!</div>
+        </div>
+      </div>
+
+      <!-- ADMIN PASSWORD -->
+      <div class="admin-page" id="page-admin-pass">
+        <div class="admin-page-title">🛡️ Admin paroli</div>
+        <div class="admin-page-sub">Admin panelga kirish ma'lumotlarini o'zgartiring</div>
+        <div class="settings-card">
+          <h3>🔐 Admin ma'lumotlari</h3>
+          <div class="desc">Standart: login = Nodirjon, parol = nodirjon123456</div>
+          <div class="settings-row" style="grid-template-columns:1fr">
+            <div class="set-fld">
+              <label>Joriy parol</label>
+              <input type="password" id="adm-old" placeholder="Joriy admin parolini kiriting">
+            </div>
+            <div class="set-fld">
+              <label>Yangi login</label>
+              <input type="text" id="adm-new-login" placeholder="Yangi login">
+            </div>
+            <div class="set-fld">
+              <label>Yangi parol</label>
+              <input type="password" id="adm-new-pass" placeholder="Kamida 8 belgi" oninput="checkPassStr(this.value,'adm-str')">
+              <div class="password-strength"><div class="password-strength-fill" id="adm-str"></div></div>
+            </div>
+            <div class="set-fld">
+              <label>Yangi parolni tasdiqlang</label>
+              <input type="password" id="adm-confirm" placeholder="Parolni qayta kiriting">
+            </div>
+          </div>
+          <div class="admin-err" id="adm-err" style="display:none;margin-top:12px"></div>
+          <button class="save-btn" onclick="saveAdminPass()">🛡️ Ma'lumotlarni yangilash</button>
+          <div class="save-ok" id="adm-ok">✅ Admin ma'lumotlari yangilandi!</div>
+        </div>
+        <div class="settings-card" style="border-color:#341515">
+          <h3 style="color:#f87171">⚠️ Diqqat!</h3>
+          <div class="desc">Yangi parolni eslab qoling. Aks holda faylni qo'lda tahrirlash kerak bo'ladi.</div>
+        </div>
+      </div>
+
+    </div><!-- /admin-content -->
+  </div><!-- /admin-body -->
+</div><!-- /admin-dashboard -->
+
+<script>
+// ─── Credentials ────────────────────────────────────────
+const DEF = { login:'Nodirjon', pass:'nodirjon123456' };
+function getCreds() {
+  return { login: localStorage.getItem('admin_login')||DEF.login, pass: localStorage.getItem('admin_password')||DEF.pass };
+}
+
+function doAdminLogin() {
+  const l = document.getElementById('admin-login-input').value.trim();
+  const p = document.getElementById('admin-pass-input').value;
+  const c = getCreds();
+  if (l===c.login && p===c.pass) {
+    document.getElementById('admin-login').style.display = 'none';
+    document.getElementById('admin-dashboard').style.display = 'block';
+    document.getElementById('login-err').style.display = 'none';
+    document.getElementById('topbar-username').textContent = l + ' (Admin)';
+    loadAllSettings();
+  } else {
+    document.getElementById('login-err').style.display = 'block';
+    document.getElementById('admin-pass-input').value = '';
+    document.getElementById('admin-pass-input').focus();
+  }
+}
+function doLogout() {
+  document.getElementById('admin-dashboard').style.display = 'none';
+  document.getElementById('admin-login').style.display = 'flex';
+  document.getElementById('admin-login-input').value = '';
+  document.getElementById('admin-pass-input').value = '';
+}
+
+// ─── Navigation ─────────────────────────────────────────
+function showPage(name, el) {
+  document.querySelectorAll('.admin-page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));
+  const pg = document.getElementById('page-'+name);
+  if(pg) pg.classList.add('active');
+  if(el) el.classList.add('active');
+  if(name === 'students') renderAdminStudentsList('');
+}
+
+// ─── Load all saved settings ─────────────────────────────
+function loadAllSettings() {
+  // Colors
+  const sc = getSavedColors();
+  document.getElementById('color-violet').value = sc.violet;
+  document.getElementById('color-indigo').value = sc.indigo;
+  document.getElementById('color-coral').value  = sc.coral;
+  // BG
+  const bg = localStorage.getItem('site_bg') || '#0d0b16';
+  document.getElementById('bg-color-pick').value = bg;
+  document.getElementById('bg-color-text').value = bg;
+  document.getElementById('bg-preview').style.background = bg;
+  // Logo
+  const lg = getSavedLogo();
+  document.getElementById('logo-color1').value = lg.c1;
+  document.getElementById('logo-color2').value = lg.c2;
+  document.getElementById('logo-dot').value    = lg.dot;
+  updateLogoPreview();
+  // Text
+  const tc = getSavedTextColors();
+  document.getElementById('text-main').value = tc.main;
+  document.getElementById('text-soft').value = tc.soft;
+  document.getElementById('text-dim').value  = tc.dim;
+  updateTextPreview();
+  updatePreview();
+}
+
+// ─── Colors ─────────────────────────────────────────────
+const themes = {
+  violet:{violet:'#8b5cf6',indigo:'#4c2f9e',coral:'#fb5607'},
+  blue:  {violet:'#3b82f6',indigo:'#1d4ed8',coral:'#0ea5e9'},
+  green: {violet:'#10b981',indigo:'#065f46',coral:'#34d399'},
+  gold:  {violet:'#f59e0b',indigo:'#92400e',coral:'#fbbf24'},
+  pink:  {violet:'#ec4899',indigo:'#9d174d',coral:'#f472b6'},
+  cyan:  {violet:'#06b6d4',indigo:'#0e7490',coral:'#22d3ee'},
+  fire:  {violet:'#7c3aed',indigo:'#dc2626',coral:'#fb5607'}
+};
+function applyTheme(name) {
+  const t = themes[name];
+  document.getElementById('color-violet').value = t.violet;
+  document.getElementById('color-indigo').value = t.indigo;
+  document.getElementById('color-coral').value  = t.coral;
+  updatePreview();
+}
+function getSavedColors() {
+  const s = localStorage.getItem('site_colors');
+  if(s) return JSON.parse(s);
+  return {violet:'#8b5cf6',indigo:'#4c2f9e',coral:'#fb5607'};
+}
+function updatePreview() {
+  const v = document.getElementById('color-violet').value;
+  const i = document.getElementById('color-indigo').value;
+  const c = document.getElementById('color-coral').value;
+  document.getElementById('prev-btn2').style.background = v;
+  document.getElementById('prev-dot').style.color = v;
+  document.getElementById('prev-coral-btn').style.background = c;
+  document.getElementById('prev-body').style.background = i;
+  document.getElementById('prev-logo-mark').style.background = `linear-gradient(135deg,${i},${v})`;
+}
+function saveColors() {
+  const c = {
+    violet: document.getElementById('color-violet').value,
+    indigo: document.getElementById('color-indigo').value,
+    coral:  document.getElementById('color-coral').value
+  };
+  localStorage.setItem('site_colors', JSON.stringify(c));
+  flash('color-ok');
+}
+
+// ─── Background ─────────────────────────────────────────
+function applyBg(val) {
+  document.getElementById('bg-preview').style.background = val;
+  document.getElementById('bg-color-pick').value = val.startsWith('#') && val.length===7 ? val : document.getElementById('bg-color-pick').value;
+  document.getElementById('bg-color-text').value = val;
+}
+function saveBg() {
+  const val = document.getElementById('bg-color-text').value;
+  localStorage.setItem('site_bg', val);
+  flash('bg-ok');
+}
+
+// ─── Logo ────────────────────────────────────────────────
+function getSavedLogo() {
+  const s = localStorage.getItem('site_logo');
+  if(s) return JSON.parse(s);
+  return {c1:'#4c2f9e', c2:'#8b5cf6', dot:'#8b5cf6'};
+}
+function applyLogoTheme(c1,c2,dot) {
+  document.getElementById('logo-color1').value = c1;
+  document.getElementById('logo-color2').value = c2;
+  document.getElementById('logo-dot').value    = dot;
+  updateLogoPreview();
+}
+function updateLogoPreview() {
+  const c1  = document.getElementById('logo-color1').value;
+  const c2  = document.getElementById('logo-color2').value;
+  const dot = document.getElementById('logo-dot').value;
+  document.getElementById('logo-prev-mark').style.background = `linear-gradient(135deg,${c1},${c2})`;
+  document.getElementById('logo-prev-dot').style.color = dot;
+}
+function saveLogo() {
+  const lg = {
+    c1:  document.getElementById('logo-color1').value,
+    c2:  document.getElementById('logo-color2').value,
+    dot: document.getElementById('logo-dot').value
+  };
+  localStorage.setItem('site_logo', JSON.stringify(lg));
+  flash('logo-ok');
+}
+
+// ─── Text colors ─────────────────────────────────────────
+function getSavedTextColors() {
+  const s = localStorage.getItem('site_text_colors');
+  if(s) return JSON.parse(s);
+  return {main:'#f4f2fa', soft:'#d8d4e8', dim:'#a39cc0'};
+}
+function applyTextTheme(main,soft,dim) {
+  document.getElementById('text-main').value = main;
+  document.getElementById('text-soft').value = soft;
+  document.getElementById('text-dim').value  = dim;
+  updateTextPreview();
+}
+function updateTextPreview() {
+  const m = document.getElementById('text-main').value;
+  const s = document.getElementById('text-soft').value;
+  const d = document.getElementById('text-dim').value;
+  document.getElementById('tprev-main').style.color = m;
+  document.getElementById('tprev-soft').style.color = s;
+  document.getElementById('tprev-dim').style.color  = d;
+}
+function saveTextColors() {
+  const tc = {
+    main: document.getElementById('text-main').value,
+    soft: document.getElementById('text-soft').value,
+    dim:  document.getElementById('text-dim').value
+  };
+  localStorage.setItem('site_text_colors', JSON.stringify(tc));
+  flash('text-ok');
+}
+
+// ─── Cabinet password ────────────────────────────────────
+function saveCabinetPass() {
+  const oldP = document.getElementById('cab-old').value;
+  const newP = document.getElementById('cab-new').value;
+  const conf = document.getElementById('cab-confirm').value;
+  const err  = document.getElementById('cab-err');
+  err.style.display = 'none';
+  const cur  = localStorage.getItem('cabinet_password') || 'sensorika2026';
+  if(oldP !== cur)     { err.textContent='❌ Joriy parol noto\'g\'ri!'; err.style.display='block'; return; }
+  if(newP.length < 6)  { err.textContent='❌ Kamida 6 ta belgi!'; err.style.display='block'; return; }
+  if(newP !== conf)    { err.textContent='❌ Parollar mos kelmadi!'; err.style.display='block'; return; }
+  localStorage.setItem('cabinet_password', newP);
+  document.getElementById('cab-old').value='';
+  document.getElementById('cab-new').value='';
+  document.getElementById('cab-confirm').value='';
+  document.getElementById('cab-str').style.width='0';
+  flash('cab-ok');
+}
+
+// ─── Admin password ──────────────────────────────────────
+function saveAdminPass() {
+  const oldP  = document.getElementById('adm-old').value;
+  const newL  = document.getElementById('adm-new-login').value.trim();
+  const newP  = document.getElementById('adm-new-pass').value;
+  const conf  = document.getElementById('adm-confirm').value;
+  const err   = document.getElementById('adm-err');
+  err.style.display = 'none';
+  const creds = getCreds();
+  if(oldP !== creds.pass) { err.textContent='❌ Joriy parol noto\'g\'ri!'; err.style.display='block'; return; }
+  if(!newL)               { err.textContent='❌ Login bo\'sh bo\'lmasin!'; err.style.display='block'; return; }
+  if(newP.length < 8)     { err.textContent='❌ Kamida 8 ta belgi!'; err.style.display='block'; return; }
+  if(newP !== conf)       { err.textContent='❌ Parollar mos kelmadi!'; err.style.display='block'; return; }
+  localStorage.setItem('admin_login', newL);
+  localStorage.setItem('admin_password', newP);
+  document.getElementById('adm-old').value='';
+  document.getElementById('adm-new-login').value='';
+  document.getElementById('adm-new-pass').value='';
+  document.getElementById('adm-confirm').value='';
+  document.getElementById('adm-str').style.width='0';
+  flash('adm-ok');
+}
+
+// ─── Helpers ─────────────────────────────────────────────
+function checkPassStr(val, barId) {
+  const bar = document.getElementById(barId);
+  let s = 0;
+  if(val.length>=6)  s++;
+  if(val.length>=10) s++;
+  if(/[A-Z]/.test(val)) s++;
+  if(/[0-9]/.test(val)) s++;
+  if(/[^A-Za-z0-9]/.test(val)) s++;
+  const pct = Math.min(s*20,100);
+  bar.style.width = pct+'%';
+  bar.style.background = pct<40?'#f87171':pct<70?'#fbbf24':'#34d399';
+}
+function flash(id) {
+  const el = document.getElementById(id);
+  el.style.display='block';
+  setTimeout(()=>el.style.display='none', 3000);
+}
+
+// ═══════════════════════════════════════════════════════
+// O'QUVCHILARNI BAHOLASH — 10 ballik sistema
+// ═══════════════════════════════════════════════════════
+function renderAdminStudentsList(query) {
+  const wrap = document.getElementById('admin-students-list');
+  if (!wrap || typeof studentsData === 'undefined') return;
+
+  const q = (query || '').toLowerCase().trim();
+  const list = !q ? studentsData : studentsData.filter(s =>
+    s.name.toLowerCase().includes(q) ||
+    s.id.toLowerCase().includes(q) ||
+    s.course.toLowerCase().includes(q)
+  );
+
+  if (!list.length) {
+    wrap.innerHTML = `<div style="text-align:center;padding:40px;color:#6e6790;font-size:0.9rem">O'quvchi topilmadi</div>`;
+    return;
+  }
+
+  wrap.innerHTML = list.map(s => {
+    const score = s.score || 5;
+    const color = scoreToColor(score);
+    return `
+    <div class="admin-student-row" data-id="${s.id}">
+      <img src="${s.photos[0]}" alt="${s.name}" class="asr-photo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect fill=%27%232c2745%27 width=%27100%27 height=%27100%27/%3E%3Ctext fill=%27%238b5cf6%27 font-size=%2736%27 x=%2750%27 y=%2762%27 text-anchor=%27middle%27 font-family=%27sans-serif%27%3E${s.initials}%3C/text%3E%3C/svg%3E'">
+      <div class="asr-info">
+        <div class="asr-name">${s.name}</div>
+        <div class="asr-meta">${s.course} · ID: <span class="mono">${s.id}</span></div>
+      </div>
+      <div class="asr-grade">
+        <div class="asr-grade-label" id="asr-label-${s.id}" style="color:${color}">${scoreToGradeLabel(score)}</div>
+        <div class="asr-slider-row">
+          <input type="range" min="1" max="10" step="1" value="${score}"
+            class="asr-slider" id="asr-slider-${s.id}"
+            oninput="updateAdminGradeLive('${s.id}', this.value)">
+          <span class="asr-score-num" id="asr-num-${s.id}">${score}</span>
+        </div>
+      </div>
+      <button class="asr-save-btn" id="asr-save-${s.id}" onclick="commitAdminGrade('${s.id}')">💾 Saqlash</button>
+    </div>`;
+  }).join('');
+}
+
+function updateAdminGradeLive(id, val) {
+  const score = Number(val);
+  const color = scoreToColor(score);
+  document.getElementById('asr-num-' + id).textContent = score;
+  document.getElementById('asr-label-' + id).textContent = scoreToGradeLabel(score);
+  document.getElementById('asr-label-' + id).style.color = color;
+  const btn = document.getElementById('asr-save-' + id);
+  btn.textContent = '💾 Saqlash';
+  btn.classList.remove('saved');
+}
+
+function commitAdminGrade(id) {
+  const slider = document.getElementById('asr-slider-' + id);
+  const score = Number(slider.value);
+  saveStudentGrade(id, score);
+  const btn = document.getElementById('asr-save-' + id);
+  btn.textContent = '✅ Saqlandi';
+  btn.classList.add('saved');
+  setTimeout(() => {
+    btn.textContent = '💾 Saqlash';
+    btn.classList.remove('saved');
+  }, 1800);
+}
+</script>
+
+<style>
+.admin-student-row {
+  background:#181527; border:1px solid #2c2745; border-radius:14px;
+  padding:16px 20px; display:flex; align-items:center; gap:16px;
+  transition: border-color 0.15s;
+}
+.admin-student-row:hover { border-color:#3a3358; }
+.asr-photo { width:52px; height:52px; border-radius:50%; object-fit:cover; flex-shrink:0; border:1px solid #2c2745; }
+.asr-info { flex:1; min-width:0; }
+.asr-name { font-weight:700; font-size:0.92rem; color:#f4f2fa; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.asr-meta { font-size:0.78rem; color:#6e6790; margin-top:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.asr-grade { width:220px; flex-shrink:0; }
+.asr-grade-label { font-size:0.8rem; font-weight:700; margin-bottom:6px; }
+.asr-slider-row { display:flex; align-items:center; gap:10px; }
+.asr-slider {
+  flex:1; -webkit-appearance:none; appearance:none; height:5px; border-radius:99px;
+  background:#2c2745; outline:none; cursor:pointer;
+}
+.asr-slider::-webkit-slider-thumb {
+  -webkit-appearance:none; appearance:none; width:17px; height:17px; border-radius:50%;
+  background:#8b5cf6; cursor:pointer; border:2px solid #181527; box-shadow:0 0 0 1px #8b5cf6;
+}
+.asr-slider::-moz-range-thumb {
+  width:17px; height:17px; border-radius:50%; background:#8b5cf6; cursor:pointer;
+  border:2px solid #181527; box-shadow:0 0 0 1px #8b5cf6;
+}
+.asr-score-num {
+  font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.95rem; color:#f4f2fa;
+  width:22px; text-align:center; flex-shrink:0;
+}
+.asr-save-btn {
+  background:#8b5cf6; color:#fff; border:none; border-radius:9px; padding:9px 16px;
+  font-size:0.8rem; font-weight:700; cursor:pointer; font-family:'Inter',sans-serif;
+  transition:all 0.18s; flex-shrink:0; white-space:nowrap;
+}
+.asr-save-btn:hover { background:#6d28d9; }
+.asr-save-btn.saved { background:#0f2e22; color:#34d399; }
+
+@media(max-width:768px) {
+  .admin-student-row { flex-wrap:wrap; }
+  .asr-grade { width:100%; order:3; }
+  .asr-save-btn { order:4; width:100%; }
+}
+</style>
+</body>
+</html>

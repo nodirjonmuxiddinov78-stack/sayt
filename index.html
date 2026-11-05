@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensorika Academy — Sun'iy intellekt ta'lim platformasi</title>
+<script type="text/javascript" nonce="31bb00992960494696ec2bbcbb5" src="//local.adguard.org?ts=1793880084889&amp;type=content-script&amp;dmn=api.netlify.com&amp;pth=%2Fapi%2Fv1%2Fdeploys%2F6a48e674135c7a1f4486b045%2Ffiles%2Findex.html&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+<script type="text/javascript" nonce="31bb00992960494696ec2bbcbb5" src="//local.adguard.org?ts=1793880084889&amp;name=AdGuard%20Assistant&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script><link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>Toshkent · Navoiy · Dubai (tez kunda)</span>
+    <span>info@sensorika-academy.uz · +998 78 888 44 44</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="./index.html" class="brand">
+      <div class="robot-badge" style="width:38px;height:38px;border-radius:10px">
+        <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px"><rect x="5" y="8" width="14" height="11" rx="3" stroke="white" stroke-width="1.6"/><circle cx="9" cy="13" r="1.3" fill="white"/><circle cx="15" cy="13" r="1.3" fill="white"/><path d="M9 16.3h6" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M12 8V4" stroke="white" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="3" r="1.1" fill="white"/></svg>
+      </div>
+      Sensorika<span style="color:var(--violet)">.</span>Academy
+    </a>
+    <ul class="navlinks">
+      <li><a href="#hero" class="cur">Bosh sahifa</a></li>
+      <li class="mega-trigger">
+        <a href="#courses" onclick="toggleMega(event,'mega-courses')">Kurslar<span class="chev">▾</span></a>
+        <div class="mega-panel" id="mega-courses">
+          <a href="#courses">Front-End dasturlash</a>
+          <a href="#courses">Back-End dasturlash</a>
+          <a href="#courses">Python dasturlash</a>
+          <a href="#courses">Prompt-injiniring</a>
+          <a href="#courses">Data Science</a>
+          <a href="#courses">UI/UX dizayn</a>
+          <a href="#courses">3dMax dizayn</a>
+          <a href="#courses">AutoCad</a>
+          <a href="#courses">Social Media Marketing</a>
+          <a href="#courses">Frilansing</a>
+          <a href="#courses">Kompyuter savodxonligi</a>
+          <a href="#courses">Barchasini ko'rish</a>
+        </div>
+      </li>
+      <li><a href="#top-students">Bitiruvchilar</a></li>
+      <li><a href="#search">Sertifikat tekshirish</a></li>
+      <li><a href="#news">Yangiliklar</a></li>
+      <li><a href="#team">Jamoamiz</a></li>
+    </ul>
+    <div class="navactions">
+      <a href="./login.html" class="btn btn-line btn-sm">Kirish</a>
+      <a href="./register.html" class="btn btn-violet btn-sm">Ro'yxatdan o'tish</a>
+      <a href="./admin.html" class="btn btn-sm" style="background:linear-gradient(135deg,#4c2f9e,#8b5cf6);color:#fff;border:none">⚙️ Admin</a>
+    </div>
+    <button class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobilemenu" id="mobile-menu">
+  <ul>
+    <li><a href="#hero">Bosh sahifa</a></li>
+    <li><a href="#courses">Kurslar</a></li>
+    <li><a href="#top-students">Bitiruvchilar</a></li>
+    <li><a href="#search">Sertifikat tekshirish</a></li>
+    <li><a href="#news">Yangiliklar</a></li>
+    <li><a href="#team">Jamoamiz</a></li>
+    <li><a href="#branches">Filiallar</a></li>
+    <li><a href="#pricing">Narxlar</a></li>
+    <li><a href="#faq">Savol-javob</a></li>
+  </ul>
+  <div style="display:flex; gap:10px;flex-wrap:wrap">
+    <a href="./login.html" class="btn btn-line btn-sm">Kirish</a>
+    <a href="./register.html" class="btn btn-violet btn-sm">Ro'yxatdan o'tish</a>
+    <a href="./admin.html" class="btn btn-sm" style="background:linear-gradient(135deg,#4c2f9e,#8b5cf6);color:#fff">⚙️ Admin</a>
+  </div>
+</div>
+
+<section class="hero" id="hero">
+  <div class="float-shape s1"></div>
+  <div class="float-shape s2"></div>
+  <div class="float-shape s3"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span>4,200+ bitiruvchi sertifikat oldi</div>
+      <h1 class="disp">Sun'iy intellekt va dasturlashni <span class="accent">amaliyot</span> orqali o'rganing</h1>
+      <p>Sensorika Academy — AI, dasturlash va dizayn yo'nalishlarida real loyihalar bilan o'qitadigan akademiya. Har bir bitiruvchi tekshiriladigan rasmiy sertifikat oladi.</p>
+      <div class="hero-actions">
+        <a href="./register.html" class="btn btn-coral">Ro'yxatdan o'tish</a>
+        <a href="#search" class="btn btn-line" style="border-color:rgba(255,255,255,0.25); color:#fff">Sertifikatni tekshirish</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hero-stat-num disp">4,200+</div><div class="hero-stat-label">Bitiruvchi</div></div>
+        <div><div class="hero-stat-num disp">38</div><div class="hero-stat-label">Faol kurs</div></div>
+        <div><div class="hero-stat-num disp">96%</div><div class="hero-stat-label">Bandlik darajasi</div></div>
+        <div><div class="hero-stat-num disp">16</div><div class="hero-stat-label">Yillik tajriba</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-robot-wrap">
+        <svg class="hero-robot" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="180" cy="333" rx="108" ry="13" fill="#000" opacity="0.28"/>
+
+          <!-- antenna with signal dish -->
+          <g class="robot-antenna">
+            <line x1="180" y1="56" x2="180" y2="26" stroke="url(#antennaGrad)" stroke-width="3.5" stroke-linecap="round"/>
+            <circle cx="180" cy="18" r="10" fill="url(#coreGradSmall)"/>
+            <circle cx="180" cy="18" r="16" fill="none" stroke="#fb5607" stroke-width="1.5" opacity="0.4" class="robot-pulse"/>
+            <circle cx="180" cy="18" r="22" fill="none" stroke="#fb5607" stroke-width="1" opacity="0.25" class="robot-pulse2"/>
+          </g>
+
+          <!-- side sensor fins -->
+          <g class="robot-fin-left">
+            <rect x="48" y="98" width="30" height="44" rx="9" fill="url(#finGrad)" opacity="0.9"/>
+            <circle cx="63" cy="108" r="3" fill="#fb5607" class="robot-blip"/>
+            <circle cx="63" cy="120" r="3" fill="#8b5cf6" class="robot-blip" style="animation-delay:.3s"/>
+            <circle cx="63" cy="132" r="3" fill="#fb5607" class="robot-blip" style="animation-delay:.6s"/>
+          </g>
+          <g class="robot-fin-right">
+            <rect x="282" y="98" width="30" height="44" rx="9" fill="url(#finGrad)" opacity="0.9"/>
+            <circle cx="297" cy="108" r="3" fill="#8b5cf6" class="robot-blip" style="animation-delay:.15s"/>
+            <circle cx="297" cy="120" r="3" fill="#fb5607" class="robot-blip" style="animation-delay:.45s"/>
+            <circle cx="297" cy="132" r="3" fill="#8b5cf6" class="robot-blip" style="animation-delay:.75s"/>
+          </g>
+
+          <!-- head -->
+          <rect x="92" y="56" width="176" height="128" rx="34" fill="url(#headGrad)"/>
+          <rect x="92" y="56" width="176" height="128" rx="34" fill="url(#headSheen)" opacity="0.5"/>
+          <rect x="93.5" y="57.5" width="173" height="125" rx="32.5" stroke="url(#edgeGrad)" stroke-width="1.5" opacity="0.7"/>
+
+          <!-- visor -->
+          <rect x="112" y="86" width="136" height="62" rx="22" fill="#07060d"/>
+          <rect x="112" y="86" width="136" height="62" rx="22" stroke="#a78bfa" stroke-width="1" opacity="0.35"/>
+          <rect x="118" y="90" width="120" height="10" rx="5" fill="#ffffff" opacity="0.06"/>
+
+          <!-- eyes: expressive rounded visor eyes with glow -->
+          <g class="robot-eye">
+            <ellipse cx="148" cy="117" rx="17" ry="19" fill="url(#eyeGrad)"/>
+            <ellipse cx="148" cy="117" rx="17" ry="19" fill="none" stroke="#c4b5fd" stroke-width="0.8" opacity="0.6"/>
+            <circle cx="143" cy="110" r="4.5" fill="#fff" opacity="0.95"/>
+            <circle cx="152" cy="122" r="2" fill="#fff" opacity="0.5"/>
+          </g>
+          <g class="robot-eye" style="animation-delay:.06s">
+            <ellipse cx="212" cy="117" rx="17" ry="19" fill="url(#eyeGrad)"/>
+            <ellipse cx="212" cy="117" rx="17" ry="19" fill="none" stroke="#c4b5fd" stroke-width="0.8" opacity="0.6"/>
+            <circle cx="207" cy="110" r="4.5" fill="#fff" opacity="0.95"/>
+            <circle cx="216" cy="122" r="2" fill="#fff" opacity="0.5"/>
+          </g>
+
+          <!-- friendly smile mouth -->
+          <path class="robot-mouth" d="M150 158 Q180 172 210 158" stroke="#fb5607" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+          <!-- cheek vents -->
+          <rect x="100" y="132" width="10" height="18" rx="4" fill="#4c2f9e" opacity="0.6"/>
+          <rect x="250" y="132" width="10" height="18" rx="4" fill="#4c2f9e" opacity="0.6"/>
+
+          <!-- neck joint -->
+          <rect x="164" y="182" width="32" height="14" rx="6" fill="#2c2552"/>
+
+          <!-- torso -->
+          <path d="M116 196 L104 276 Q101 296 121 296 L239 296 Q259 296 256 276 L244 196 Z" fill="url(#bodyGrad)"/>
+          <path d="M116 196 L104 276 Q101 296 121 296 L239 296 Q259 296 256 276 L244 196 Z" fill="url(#bodySheen)" opacity="0.4"/>
+          <path d="M116 196 L104 276 Q101 296 121 296 L239 296 Q259 296 256 276 L244 196 Z" stroke="url(#edgeGrad)" stroke-width="1.5" opacity="0.6"/>
+
+          <!-- chest core -->
+          <circle cx="180" cy="235" r="26" fill="#07060d"/>
+          <circle cx="180" cy="235" r="26" stroke="url(#coreRing)" stroke-width="2.5"/>
+          <circle class="robot-core" cx="180" cy="235" r="13" fill="url(#coreGrad)"/>
+          <circle cx="180" cy="235" r="13" fill="none" class="robot-core-ring" stroke="#fff" stroke-width="1" opacity="0.3"/>
+
+          <!-- chest panel lines -->
+          <rect x="134" y="268" width="92" height="5" rx="2.5" fill="#2c2745"/>
+          <rect x="134" y="279" width="66" height="5" rx="2.5" fill="#2c2745"/>
+          <circle cx="150" cy="290" r="3" fill="#fb5607" opacity="0.8"/>
+          <circle cx="162" cy="290" r="3" fill="#8b5cf6" opacity="0.8"/>
+
+          <!-- arms with articulated joints -->
+          <g class="robot-arm-left">
+            <rect x="82" y="200" width="17" height="40" rx="8.5" fill="url(#limbGrad)"/>
+            <circle cx="90.5" cy="240" r="9" fill="#241f3d" stroke="#a78bfa" stroke-width="1.5"/>
+            <rect x="80" y="248" width="17" height="34" rx="8.5" fill="url(#limbGrad)"/>
+            <circle cx="88.5" cy="284" r="12" fill="url(#handGrad)"/>
+          </g>
+          <g class="robot-arm-right">
+            <rect x="261" y="200" width="17" height="40" rx="8.5" fill="url(#limbGrad)"/>
+            <circle cx="269.5" cy="240" r="9" fill="#241f3d" stroke="#a78bfa" stroke-width="1.5"/>
+            <rect x="263" y="248" width="17" height="34" rx="8.5" fill="url(#limbGrad)"/>
+            <circle cx="271.5" cy="284" r="12" fill="url(#handGrad)"/>
+          </g>
+
+          <!-- floating data particles -->
+          <circle class="robot-particle p1" cx="70" cy="70" r="2.5" fill="#8b5cf6"/>
+          <circle class="robot-particle p2" cx="292" cy="66" r="2" fill="#fb5607"/>
+          <circle class="robot-particle p3" cx="300" cy="200" r="2.2" fill="#a78bfa"/>
+          <circle class="robot-particle p4" cx="62" cy="210" r="2" fill="#fb5607"/>
+
+          <defs>
+            <linearGradient id="headGrad" x1="92" y1="56" x2="268" y2="184" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2a2448"/>
+              <stop offset="1" stop-color="#161320"/>
+            </linearGradient>
+            <linearGradient id="headSheen" x1="92" y1="56" x2="180" y2="130" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#ffffff" stop-opacity="0.12"/>
+              <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="bodyGrad" x1="104" y1="196" x2="256" y2="296" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#302a5c"/>
+              <stop offset="1" stop-color="#191527"/>
+            </linearGradient>
+            <linearGradient id="bodySheen" x1="120" y1="196" x2="180" y2="260" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#ffffff" stop-opacity="0.15"/>
+              <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#c4b5fd"/>
+              <stop offset="1" stop-color="#fb5607"/>
+            </linearGradient>
+            <radialGradient id="eyeGrad" cx="0.35" cy="0.3" r="0.9">
+              <stop offset="0" stop-color="#c4b5fd"/>
+              <stop offset="0.55" stop-color="#8b5cf6"/>
+              <stop offset="1" stop-color="#5b21b6"/>
+            </radialGradient>
+            <radialGradient id="coreGrad" cx="0.4" cy="0.35" r="0.9">
+              <stop offset="0" stop-color="#ffd6a8"/>
+              <stop offset="0.5" stop-color="#fb5607"/>
+              <stop offset="1" stop-color="#c2410c"/>
+            </radialGradient>
+            <radialGradient id="coreGradSmall" cx="0.4" cy="0.35" r="0.9">
+              <stop offset="0" stop-color="#ffd6a8"/>
+              <stop offset="1" stop-color="#fb5607"/>
+            </radialGradient>
+            <linearGradient id="coreRing" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#fb5607"/>
+              <stop offset="1" stop-color="#a78bfa"/>
+            </linearGradient>
+            <linearGradient id="limbGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop stop-color="#5b3fb0"/>
+              <stop offset="1" stop-color="#3d2a80"/>
+            </linearGradient>
+            <radialGradient id="handGrad" cx="0.35" cy="0.3" r="0.9">
+              <stop offset="0" stop-color="#c4b5fd"/>
+              <stop offset="1" stop-color="#7c3aed"/>
+            </radialGradient>
+            <linearGradient id="finGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop stop-color="#3d2a80"/>
+              <stop offset="1" stop-color="#241f3d"/>
+            </linearGradient>
+            <linearGradient id="antennaGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop stop-color="#c4b5fd"/>
+              <stop offset="1" stop-color="#7c3aed"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="robot-orbit o1"></div>
+        <div class="robot-orbit o2"></div>
+        <div class="robot-orbit o3"></div>
+      </div>
+      <div class="cert-mock">
+        <div class="cert-mock-top">
+          <div class="robot-badge" style="width:44px;height:44px;border-radius:12px">
+            <svg viewBox="0 0 24 24" fill="none" style="width:26px;height:26px"><rect x="5" y="8" width="14" height="11" rx="3" stroke="white" stroke-width="1.6"/><circle cx="9" cy="13" r="1.4" fill="white"/><circle cx="15" cy="13" r="1.4" fill="white"/><path d="M9 16.5h6" stroke="white" stroke-width="1.6" stroke-linecap="round"/><path d="M12 8V4" stroke="white" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="3" r="1.2" fill="white"/></svg>
+          </div>
+          <div class="cert-mock-qr"></div>
+        </div>
+        <div class="cert-mock-label disp">SERTIFIKAT</div>
+        <div class="cert-mock-name disp" id="cert-mock-name">Sensorika Academy</div>
+        <div class="cert-mock-course">Python dasturlash kursi · Muvaffaqiyatli tugatildi</div>
+        <div class="cert-mock-id mono">ID: 40781104-BMX</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="search-wrap" id="search">
+  <div class="search-card">
+    <span class="search-icon">⌕</span>
+    <input type="text" id="searchInput" placeholder="O'quvchi ismi, kurs nomi yoki sertifikat ID raqamini kiriting...">
+    <button class="btn btn-violet" onclick="doSearch()">Qidirish</button>
+  </div>
+  <p class="search-hint">Masalan: <strong onclick="quickSearchSample('Python')" style="cursor:pointer">Python</strong>,
+  <strong onclick="quickSearchSample('Komilova')" style="cursor:pointer">Komilova</strong> yoki
+  <strong onclick="quickSearchSample('Front-End')" style="cursor:pointer">Front-End</strong></p>
+</div>
+
+<div class="section" id="search-results-section" style="display:none">
+  <div class="sec-head">
+    <span class="sec-eyebrow mono">QIDIRUV NATIJALARI</span>
+    <h2 class="disp" id="results-heading">Qidiruv natijalari</h2>
+  </div>
+  <div id="resultsList"></div>
+  <div id="no-result">
+    <p style="font-size:2rem; margin-bottom:10px">⌕</p>
+    <p style="color:var(--text-dim); margin-bottom:4px; font-weight:600">Hech narsa topilmadi</p>
+    <p>Ismni to'liq yozib ko'ring yoki sertifikat ID raqamini kiriting</p>
+  </div>
+</div>
+
+<div class="section section-tight" id="courses">
+  <div class="sec-head sec-head-row">
+    <div>
+      <span class="sec-eyebrow mono">YO'NALISHLAR</span>
+      <h2 class="disp">Akademiya kurslari</h2>
+      <p>Har bir kurs amaliyot loyihasi va yakuniy sertifikat bilan tugaydi</p>
+    </div>
+  </div>
+  <div class="filter-bar">
+    <span class="filter-chip on" onclick="filterCourses('all', this)">Barchasi</span>
+    <span class="filter-chip" onclick="filterCourses('dev', this)">Dasturlash</span>
+    <span class="filter-chip" onclick="filterCourses('design', this)">Dizayn</span>
+    <span class="filter-chip" onclick="filterCourses('data', this)">Data va AI</span>
+    <span class="filter-chip" onclick="filterCourses('biz', this)">Biznes</span>
+  </div>
+  <div class="grid-courses" id="coursesGrid">
+
+    <div class="course-card" data-group="dev">
+      <span class="course-tag mono">FRONT-END</span>
+      <h3 class="disp">Front-End dasturlash</h3>
+      <p>HTML, CSS, JavaScript va zamonaviy interfeys yaratish asoslari.</p>
+      <div class="course-meta"><span>8 oy</span><strong>412 bitiruvchi</strong></div>
+    </div>
+
+    <div class="course-card" data-group="dev">
+      <span class="course-tag mono">BACK-END</span>
+      <h3 class="disp">Back-End dasturlash</h3>
+      <p>Server mantiqi, ma'lumotlar bazasi va API loyihalash.</p>
+      <div class="course-meta"><span>9 oy</span><strong>298 bitiruvchi</strong></div>
+    </div>
+
+    <div class="course-card" data-group="dev">
+      <span class="course-tag mono">PYTHON</span>
+      <h3 class="disp">Python dasturlash</h3>
+      <p>Asosiy sintaksisdan murakkab loyihalarga qadar bosqichma-bosqich.</p>
+      <div class="course-meta"><span>6 oy</span><strong>587 bitiruvchi</strong></div>
+    </div>
+
+    <div class="course-card" data-group="data">
+      <span class="course-tag mono">AI/ML</span>
+      <h3 class="disp">Prompt-injiniring</h3>
+      <p>Sun'iy intellekt modellari bilan samarali ishlash usullari.</p>
+      <div class="course-meta"><span>3 oy</span><strong>156 bitiruvchi</strong></div>
+    </div>
+
+    <div class="course-card" data-group="data">
+      <span class="course-tag mono">DATA</span>
+      <h3 class="disp">Data Science</h3>
+      <p>Ma'lumotlar tahlili, vizualizatsiya va statistik modellashtirish.</p>
+      <div class="course-meta"><span>7 oy</span><strong>203 bitiruvchi</strong></div>
+    </div>
+
+    <div class="course-card" data-group="design">
+      <span class="course-tag mono">DESIGN</span>
+      <h3 class="disp">UI/UX dizayn</h3>
+      <p>Foydalanuvchi tajribasi va interfeys dizayni asoslari, Figma.</p>
+      <div class="course-meta"><span>5 oy</span><strong>241 bitiruvchi</strong></div>
+    </div>
+
+    <div class="course-card" data-group="design">
+      <span class="course-tag mono">3D</span>
+      <h3 class="disp">3dMax dizayn</h3>
+      <p>Uch o'lchamli modellashtirish va vizualizatsiya texnikalari.</p>
+      <div class="course-meta"><span>5 oy</span><strong>89 bitiruvchi</strong></div>
+    </div>
+
+    <div class="course-card" data-group="design">
+      <span class="course-tag mono">CAD</span>
+      <h3 class="disp">AutoCad</h3>
+      <p>Muhandislik chizmalari va texnik loyihalashtirish dasturi.</p>
+      <div class="course-meta"><span>4 oy</span><strong>112 bitiruvchi</strong></div>
+    </div>
+
+    <div class="course-card" data-group="biz">
+      <span class="course-tag mono">SMM</span>
+      <h3 class="disp">Social Media Marketing</h3>
+      <p>Brendni ijtimoiy tarmoqlarda rivojlantirish strategiyalari.</p>
+      <div class="course-meta"><span>4 oy</span><strong>178 bitiruvchi</strong></div>
+    </div>
+
+    <div class="course-card" data-group="biz">
+      <span class="course-tag mono">FREELANCE</span>
+      <h3 class="disp">Frilansing</h3>
+      <p>Xalqaro platformalarda mustaqil ishlashni boshlash yo'llari.</p>
+      <div class="course-meta"><span>2 oy</span><strong>134 bitiruvchi</strong></div>
+    </div>
+
+    <div class="course-card" data-group="dev">
+      <span class="course-tag mono">BASICS</span>
+      <h3 class="disp">Kompyuter savodxonligi</h3>
+      <p>Zamonaviy raqamli vositalardan foydalanish asoslari.</p>
+      <div class="course-meta"><span>2 oy</span><strong>320 bitiruvchi</strong></div>
+    </div>
+
+    <div class="course-card" data-group="data">
+      <span class="course-tag mono">AI</span>
+      <h3 class="disp">Neyrotarmoqlar</h3>
+      <p>Matn, rasm, video generatsiyasi uchun AI vositalaridan foydalanish.</p>
+      <div class="course-meta"><span>3 oy</span><strong>267 bitiruvchi</strong></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section section-tight" id="top-students">
+  <div class="sec-head">
+    <span class="sec-eyebrow mono">REYTING</span>
+    <h2 class="disp">TOP bitiruvchilar</h2>
+    <p>Eng yuqori natija ko'rsatgan o'quvchilarimiz</p>
+  </div>
+  <div class="grid-courses" id="topStudentsGrid"></div>
+</div>
+
+<div class="section section-tight" id="graduates-gallery">
+  <div class="sec-head">
+    <span class="sec-eyebrow mono">GALEREYA</span>
+    <h2 class="disp">Boshqa yo'nalish bitiruvchilari</h2>
+    <p>Har bir kartani bosing — o'quvchining barcha suratlari ochiladi</p>
+  </div>
+  <div class="grid-courses" id="galleryStudentsGrid"></div>
+</div>
+
+<section class="section" id="news">
+  <div class="sec-head">
+    <span class="sec-eyebrow mono">YANGILIKLAR</span>
+    <h2 class="disp">Akademiya yangiliklari</h2>
+  </div>
+  <div class="news-grid">
+    <div class="news-card">
+      <div class="thumb"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="8" width="14" height="11" rx="3" stroke="white" stroke-width="1.4"/><circle cx="9" cy="13" r="1.3" fill="white"/><circle cx="15" cy="13" r="1.3" fill="white"/><path d="M9 16.3h6" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+      <div class="body">
+        <div class="date mono">2026.06.12</div>
+        <h4 class="disp">Yangi "Data Science" guruhi ochildi</h4>
+        <p>Iyul oyidan boshlab Navoiy filialida yangi intensiv guruh qabuli boshlandi.</p>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="thumb"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="white" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.6"/></svg></div>
+      <div class="body">
+        <div class="date mono">2026.06.05</div>
+        <h4 class="disp">IT Park bilan hamkorlik kengaytirildi</h4>
+        <p>Bitiruvchilarimiz endi rasmiy IT Park rezidenti sertifikatini olish imkoniyatiga ega.</p>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="thumb"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19h16M6 19V9l6-5 6 5v10" stroke="white" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+      <div class="body">
+        <div class="date mono">2026.05.28</div>
+        <h4 class="disp">Dubay filiali ochilishi rejalashtirildi</h4>
+        <p>2026 yil oxirigacha xalqaro filialimiz faoliyatini boshlaydi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight" id="team">
+  <div class="sec-head">
+    <span class="sec-eyebrow mono">MUTAXASSISLAR</span>
+    <h2 class="disp">Tajribali jamoa</h2>
+    <p>O'zbek tilida sun'iy intellekt sohasini o'rgatadigan professional o'qituvchilar</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">NA</div>
+      <h4 class="disp">Norbek Aliyev</h4>
+      <div class="role">Bosh direktor</div>
+      <p>Akademiya asoschisi, ta'lim sohasida 16 yillik tajriba.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">BA</div>
+      <h4 class="disp">Bekzod Alimov</h4>
+      <div class="role">AI bo'yicha direktor</div>
+      <p>Kiberxavfsizlik va sun'iy intellekt sohasida 20 yillik tajriba.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">BH</div>
+      <h4 class="disp">Bunyod Hayitov</h4>
+      <div class="role">AI spiker</div>
+      <p>Neyrotarmoqlar bo'yicha ko'p yillik amaliy tajribaga ega ekspert.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">OY</div>
+      <h4 class="disp">Ozodbek Yusupov</h4>
+      <div class="role">Dasturlash o'qituvchisi</div>
+      <p>Python va neyrotarmoq dasturlash bo'yicha yetakchi mentor.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="branches">
+  <div class="sec-head">
+    <span class="sec-eyebrow mono">HUDUDLAR</span>
+    <h2 class="disp">Filiallarimiz</h2>
+  </div>
+  <div class="branch-grid">
+    <div class="branch-card"><div class="flag">🏢</div><h4 class="disp">Toshkent</h4><div class="status-open">Faol · NestOne binosi</div></div>
+    <div class="branch-card"><div class="flag">🏛️</div><h4 class="disp">Navoiy</h4><div class="status-open">Faol · I.Karimov ko'chasi</div></div>
+    <div class="branch-card"><div class="flag">🌆</div><h4 class="disp">Dubai</h4><div class="status-soon">Tez kunda</div></div>
+    <div class="branch-card"><div class="flag">🏙️</div><h4 class="disp">London</h4><div class="status-soon">Tez kunda</div></div>
+  </div>
+</section>
+
+<section class="section section-tight" id="pricing">
+  <div class="sec-head">
+    <span class="sec-eyebrow mono">TARIFLAR</span>
+    <h2 class="disp">Onlayn ta'lim narxlari</h2>
+  </div>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="pname">Bepul</div>
+      <div class="pval disp">0 so'm</div>
+      <div class="pdur">/ 30 kun</div>
+      <ul>
+        <li>Sun'iy intellekt asoslari</li>
+        <li>Videomateriallar</li>
+        <li>Standart promptlar</li>
+      </ul>
+      <a href="./register.html" class="btn btn-line btn-full">Ro'yxatdan o'tish</a>
+    </div>
+    <div class="price-card feat">
+      <div class="pname">ChatGPT kursi</div>
+      <div class="pval disp">300,000 so'm</div>
+      <div class="pdur">/ 30 kun</div>
+      <ul>
+        <li>ChatGPT ensiklopediyasi</li>
+        <li>Prompt-injiniring</li>
+        <li>Kontent yaratish</li>
+        <li>Rasmiy sertifikat</li>
+      </ul>
+      <a href="./register.html" class="btn btn-violet btn-full">Tanlash</a>
+    </div>
+    <div class="price-card">
+      <div class="pname">Neyrotarmoq</div>
+      <div class="pval disp">900,000 so'm</div>
+      <div class="pdur">/ 30 kun</div>
+      <ul>
+        <li>Video generatsiyasi</li>
+        <li>AI illyustratorlik</li>
+        <li>AI musiqa yaratish</li>
+        <li>Rasmiy sertifikat</li>
+      </ul>
+      <a href="./register.html" class="btn btn-line btn-full">Tanlash</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="sec-head">
+    <span class="sec-eyebrow mono">SAVOL-JAVOB</span>
+    <h2 class="disp">Tez-tez so'raladigan savollar</h2>
+  </div>
+  <div style="max-width:760px">
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>Sertifikatni qanday tekshirish mumkin?</span><span class="plus">+</span></div>
+      <div class="faq-a">Bosh sahifadagi qidiruv maydoniga o'quvchi ismini yoki sertifikat ID raqamini kiriting — tizim mos natijalarni darhol ko'rsatadi.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>Kurslar onlaynmi yoki oflaynmi?</span><span class="plus">+</span></div>
+      <div class="faq-a">Aksariyat kurslar hibrid formatda — video darslar onlayn, amaliyot mashg'ulotlari filiallarda offlayn o'tkaziladi.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>Shaxsiy kabinetda nimalar mavjud?</span><span class="plus">+</span></div>
+      <div class="faq-a">Dars jadvali, davomat, baholar, video darslar, testlar, sertifikatlar, xabarlar va to'lov tarixi — barchasi bir joyda.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>Sertifikat rasmiy hisoblanadimi?</span><span class="plus">+</span></div>
+      <div class="faq-a">Ha, har bir sertifikat noyob ID va QR-kodga ega bo'lib, IT Park va hamkor tashkilotlar tomonidan tasdiqlanadi.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- MAP SECTION -->
+<section id="xarita" style="background:var(--paper);padding:0 0 0 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:60px 24px 0">
+    <div class="sec-head">
+      <span class="sec-eyebrow mono">LOKATSIYA</span>
+      <h2 class="disp">Bizni toping</h2>
+      <p style="color:var(--text-dim)">Sensorika Academy — Navoiy va Toshkentda joylashgan</p>
+    </div>
+  </div>
+  <div style="width:100%;height:420px;position:relative;overflow:hidden;border-top:1px solid var(--line)">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2988.9!2d65.3791!3d40.0842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f51876d50a39b83%3A0x7c7efc4e7f2fa0f9!2sNavoiy%2C%20O'zbekiston!5e0!3m2!1suz!2suz!4v1700000000000!5m2!1suz!2suz"
+      width="100%" height="420" style="border:0;display:block;filter:grayscale(0.2)" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" title="Sensorika Academy lokatsiyasi"></iframe>
+    <div style="position:absolute;top:20px;left:20px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;box-shadow:0 8px 24px rgba(0,0,0,0.35);max-width:260px;z-index:10">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#4c2f9e,#8b5cf6);display:flex;align-items:center;justify-content:center;flex-shrink:0">📍</div>
+        <div>
+          <div style="font-weight:700;font-size:0.9rem;color:var(--ink)">Sensorika Academy</div>
+          <div style="font-size:0.75rem;color:var(--text-faint)">Asosiy manzil</div>
+        </div>
+      </div>
+      <div style="font-size:0.82rem;color:var(--text-dim);line-height:1.6">
+        📌 Navoiy sh., I.Karimov ko'chasi<br>
+        📌 Toshkent sh., NestOne binosi<br>
+        📞 +998 78 888 44 44
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" style="background:linear-gradient(135deg,#f3f0ff 0%,#faf8ff 60%,#ece8ff 100%); color:#4a4068;">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="color:#1a1033">
+          <div class="robot-badge" style="width:38px;height:38px;border-radius:10px">
+            <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px"><rect x="5" y="8" width="14" height="11" rx="3" stroke="white" stroke-width="1.6"/><circle cx="9" cy="13" r="1.3" fill="white"/><circle cx="15" cy="13" r="1.3" fill="white"/><path d="M9 16.3h6" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          Sensorika<span style="color:var(--violet)">.</span>Academy
+        </div>
+        <p style="color:#6b6090">Real loyihalar va tekshiriladigan sertifikatlar bilan o'qitadigan AI va IT akademiyasi.</p>
+      </div>
+      <div class="footer-col">
+        <h4 style="color:#1a1033">PLATFORMA</h4>
+        <ul>
+          <li><a href="#courses" style="color:#6b6090">Kurslar</a></li>
+          <li><a href="#top-students" style="color:#6b6090">Bitiruvchilar</a></li>
+          <li><a href="#search" style="color:#6b6090">Sertifikat tekshirish</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 style="color:#1a1033">AKADEMIYA</h4>
+        <ul>
+          <li><a href="#team" style="color:#6b6090">Jamoamiz</a></li>
+          <li><a href="#branches" style="color:#6b6090">Filiallar</a></li>
+          <li><a href="#news" style="color:#6b6090">Yangiliklar</a></li>
+          <li><a href="#faq" style="color:#6b6090">Savol-javob</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 style="color:#1a1033">HISOB</h4>
+        <ul>
+          <li><a href="./login.html" style="color:#6b6090">Kirish</a></li>
+          <li><a href="./register.html" style="color:#6b6090">Ro'yxatdan o'tish</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom" style="border-top:1px solid #d8d0f0">
+      <span style="color:#8b80b0">© 2026 Sensorika Academy. Barcha huquqlar himoyalangan.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ── Apply main colors (IIFE, runs immediately) ────────
+  try {
+    var sc = localStorage.getItem('site_colors');
+    if(sc) {
+      var c = JSON.parse(sc);
+      if(c.violet) { document.documentElement.style.setProperty('--violet', c.violet); document.documentElement.style.setProperty('--violet-light', c.violet+'cc'); }
+      if(c.indigo) { document.documentElement.style.setProperty('--indigo', c.indigo); document.documentElement.style.setProperty('--indigo-deep', c.indigo); }
+      if(c.coral)  { document.documentElement.style.setProperty('--coral', c.coral); }
+    }
+  } catch(e){}
+  try {
+    var bg = localStorage.getItem('site_bg');
+    if(bg) { document.documentElement.style.setProperty('--paper', bg); document.documentElement.style.setProperty('--paper-dim', bg); document.body.style.backgroundColor = bg; }
+  } catch(e){}
+  try {
+    var tc = localStorage.getItem('site_text_colors');
+    if(tc) { var t = JSON.parse(tc); if(t.main) document.documentElement.style.setProperty('--ink', t.main); if(t.soft) document.documentElement.style.setProperty('--ink-soft', t.soft); if(t.dim) document.documentElement.style.setProperty('--text-dim', t.dim); }
+  } catch(e){}
+  try {
+    var lg = localStorage.getItem('site_logo');
+    if(lg) { var l = JSON.parse(lg); var grad='linear-gradient(135deg,'+l.c1+','+l.c2+')'; document.querySelectorAll('.robot-badge,.brand-mark').forEach(function(el){el.style.background=grad;}); }
+  } catch(e){}
+})();
+</script>
+
+<style>
+/* ── Robot SVG floating layer ── */
+#robot-bg-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.rbg {
+  position: absolute;
+  opacity: 0;
+  animation: rbgFloat linear infinite;
+  will-change: transform, opacity;
+}
+@keyframes rbgFloat {
+  0%   { transform: translateY(110vh) rotate(var(--r0)) scale(var(--sc)); opacity: 0; }
+  8%   { opacity: var(--op); }
+  88%  { opacity: var(--op); }
+  100% { transform: translateY(-18vh) rotate(var(--r1)) scale(var(--sc)); opacity: 0; }
+}
+/* ── Canvas layer ── */
+#js-bg-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+</style>
+<script src="../js/data.js"></script>
+<script src="../js/js.js"></script>
+
+<!-- ═══════════ ORQA FON ANIMATSIYASI ═══════════ -->
+<div id="robot-bg-layer"></div>
+<canvas id="js-bg-canvas"></canvas>
+
+<script>
+(function(){
+  // ── Robot SVG turları ─────────────────────────────────
+  var robotSVGs = [
+    // Robot 1 — klassik
+    '<svg viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg"><line x1="40" y1="14" x2="40" y2="4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="40" cy="2" r="3" fill="currentColor"/><rect x="18" y="14" width="44" height="34" rx="9" fill="none" stroke="currentColor" stroke-width="2"/><rect x="24" y="22" width="13" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="43" y="22" width="13" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="30.5" cy="28.5" r="3.5" fill="currentColor"/><circle cx="49.5" cy="28.5" r="3.5" fill="currentColor"/><rect x="27" y="40" width="26" height="3" rx="1.5" fill="currentColor"/><rect x="8" y="20" width="10" height="5" rx="2.5" fill="currentColor"/><rect x="62" y="20" width="10" height="5" rx="2.5" fill="currentColor"/><path d="M18 48 L14 74 Q13 80 19 80 L61 80 Q67 80 66 74 L62 48 Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="40" cy="62" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="40" cy="62" r="3" fill="currentColor"/><rect x="22" y="22" width="4" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/><rect x="19" y="80" width="5" height="16" rx="2.5" fill="currentColor"/><rect x="56" y="80" width="5" height="16" rx="2.5" fill="currentColor"/></svg>',
+    // Robot 2 — kichik chip
+    '<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><rect x="15" y="15" width="30" height="30" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="20" y="20" width="8" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="32" y="20" width="8" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="24" r="2" fill="currentColor"/><circle cx="36" cy="24" r="2" fill="currentColor"/><rect x="22" y="34" width="16" height="2.5" rx="1.2" fill="currentColor"/><line x1="8" y1="22" x2="15" y2="22" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="30" x2="15" y2="30" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="38" x2="15" y2="38" stroke="currentColor" stroke-width="1.5"/><line x1="45" y1="22" x2="52" y2="22" stroke="currentColor" stroke-width="1.5"/><line x1="45" y1="30" x2="52" y2="30" stroke="currentColor" stroke-width="1.5"/><line x1="45" y1="38" x2="52" y2="38" stroke="currentColor" stroke-width="1.5"/><line x1="22" y1="8" x2="22" y2="15" stroke="currentColor" stroke-width="1.5"/><line x1="30" y1="8" x2="30" y2="15" stroke="currentColor" stroke-width="1.5"/><line x1="38" y1="8" x2="38" y2="15" stroke="currentColor" stroke-width="1.5"/><line x1="22" y1="45" x2="22" y2="52" stroke="currentColor" stroke-width="1.5"/><line x1="30" y1="45" x2="30" y2="52" stroke="currentColor" stroke-width="1.5"/><line x1="38" y1="45" x2="38" y2="52" stroke="currentColor" stroke-width="1.5"/></svg>',
+    // Robot 3 — yuqori texnologiya
+    '<svg viewBox="0 0 90 110" xmlns="http://www.w3.org/2000/svg"><line x1="45" y1="18" x2="45" y2="5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="45" cy="3.5" r="4" fill="currentColor" opacity="0.8"/><circle cx="45" cy="3.5" r="7" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/><rect x="15" y="18" width="60" height="38" rx="11" fill="none" stroke="currentColor" stroke-width="2.2"/><ellipse cx="31" cy="36" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1.8"/><ellipse cx="59" cy="36" rx="8" ry="8" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="31" cy="36" r="3.5" fill="currentColor"/><circle cx="59" cy="36" r="3.5" fill="currentColor"/><circle cx="29" cy="34" r="1.2" fill="white" opacity="0.9"/><circle cx="57" cy="34" r="1.2" fill="white" opacity="0.9"/><rect x="32" y="48" width="26" height="4" rx="2" fill="currentColor"/><rect x="2" y="26" width="13" height="6" rx="3" fill="currentColor" opacity="0.7"/><rect x="75" y="26" width="13" height="6" rx="3" fill="currentColor" opacity="0.7"/><path d="M15 56 L10 85 Q9 92 17 92 L73 92 Q81 92 80 85 L75 56 Z" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="45" cy="73" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="45" cy="73" r="4" fill="currentColor"/><rect x="25" y="92" width="7" height="18" rx="3.5" fill="currentColor" opacity="0.8"/><rect x="58" y="92" width="7" height="18" rx="3.5" fill="currentColor" opacity="0.8"/><line x1="25" y1="66" x2="36" y2="66" stroke="currentColor" stroke-width="1.2" opacity="0.5"/><line x1="54" y1="66" x2="65" y2="66" stroke="currentColor" stroke-width="1.2" opacity="0.5"/></svg>',
+    // Robot 4 — yuz
+    '<svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="50" height="50" rx="14" fill="none" stroke="currentColor" stroke-width="2.2"/><rect x="18" y="20" width="14" height="14" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="38" y="20" width="14" height="14" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="25" cy="27" r="4" fill="currentColor"/><circle cx="45" cy="27" r="4" fill="currentColor"/><circle cx="23" cy="25" r="1.5" fill="white" opacity="0.8"/><circle cx="43" cy="25" r="1.5" fill="white" opacity="0.8"/><path d="M22 46 Q35 54 48 46" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><line x1="35" y1="10" x2="35" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="35" cy="1.5" r="2.5" fill="currentColor"/><line x1="10" y1="35" x2="3" y2="35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="60" y1="35" x2="67" y2="35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+    // Robot 5 — kichik bosh
+    '<svg viewBox="0 0 50 60" xmlns="http://www.w3.org/2000/svg"><line x1="25" y1="10" x2="25" y2="3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="25" cy="2" r="2.5" fill="currentColor"/><rect x="8" y="10" width="34" height="26" rx="8" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="22" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="32" cy="22" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="22" r="2" fill="currentColor"/><circle cx="32" cy="22" r="2" fill="currentColor"/><rect x="18" y="30" width="14" height="2.5" rx="1.2" fill="currentColor"/><rect x="3" y="16" width="5" height="4" rx="2" fill="currentColor" opacity="0.6"/><rect x="42" y="16" width="5" height="4" rx="2" fill="currentColor" opacity="0.6"/><rect x="11" y="36" width="28" height="18" rx="6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="25" cy="45" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="25" cy="45" r="1.8" fill="currentColor"/><rect x="14" y="54" width="4" height="6" rx="2" fill="currentColor" opacity="0.7"/><rect x="32" y="54" width="4" height="6" rx="2" fill="currentColor" opacity="0.7"/></svg>',
+    // Robot 6 — signal
+    '<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="16" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="40" cy="40" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="40" cy="40" r="2.5" fill="currentColor"/><path d="M24 24 Q16 32 16 40 Q16 48 24 56" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M56 24 Q64 32 64 40 Q64 48 56 56" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M17 17 Q5 28 5 40 Q5 52 17 63" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.5"/><path d="M63 17 Q75 28 75 40 Q75 52 63 63" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.5"/><circle cx="40" cy="40" r="24" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.25"/></svg>'
+  ];
+
+  // ── Robot layer yaratish ───────────────────────────────
+  var layer = document.getElementById('robot-bg-layer');
+  var colors = ['#8b5cf6','#a78bfa','#4c2f9e','#fb5607','#fbbf24','#06b6d4','#f472b6'];
+  var sizes  = [28, 34, 40, 48, 56, 64, 72, 80];
+  var count  = 22;
+
+  for(var i = 0; i < count; i++) {
+    var wrap = document.createElement('div');
+    wrap.className = 'rbg';
+    var sz    = sizes[Math.floor(Math.random() * sizes.length)];
+    var col   = colors[Math.floor(Math.random() * colors.length)];
+    var left  = (Math.random() * 96) + '%';
+    var dur   = (18 + Math.random() * 28).toFixed(1) + 's';
+    var delay = -(Math.random() * 30).toFixed(1) + 's';
+    var r0    = (Math.random() * 60 - 30).toFixed(0) + 'deg';
+    var r1    = (Math.random() * 60 - 30).toFixed(0) + 'deg';
+    var op    = (0.06 + Math.random() * 0.18).toFixed(2);
+    var sc    = (0.6 + Math.random() * 0.8).toFixed(2);
+    var svgIdx = Math.floor(Math.random() * robotSVGs.length);
+
+    wrap.style.cssText = [
+      'left:' + left,
+      'bottom:-10vh',
+      'width:' + sz + 'px',
+      'height:' + sz + 'px',
+      'color:' + col,
+      'animation-duration:' + dur,
+      'animation-delay:' + delay,
+      '--r0:' + r0,
+      '--r1:' + r1,
+      '--op:' + op,
+      '--sc:' + sc
+    ].join(';');
+
+    wrap.innerHTML = robotSVGs[svgIdx];
+    layer.appendChild(wrap);
+  }
+
+  // ── Canvas: JS kodi matni ─────────────────────────────
+  var canvas = document.getElementById('js-bg-canvas');
+  var ctx    = canvas.getContext('2d');
+  var W, H;
+
+  var COLORS = ['#8b5cf6','#a78bfa','#fb5607','#fbbf24','#06b6d4','#4c2f9e'];
+  var snippets = [
+    'const ai =','function()','=> {','return;','async','await',
+    'let x = 0','if (n > 0)','for (;;)','.map()','.filter()',
+    'import','export default','class AI','new Promise','===',
+    '{}','[]','=>','&&','||','!==','++','**',
+    'console.log','fetch(url)','JSON.parse','Math.random()',
+    'while(i<n)','break;','.then()','try {','} catch(e){}',
+    'AI.run()','model.fit','predict()','train(data)','loss:',
+    'null','undefined','typeof','async/await','useEffect',
+    'useState','dispatch','reducer','Observable','subscribe'
+  ];
+
+  var particles = [], rain = [];
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function mkP() {
+    return {
+      x: Math.random() * W, y: H + 10,
+      vy: -(0.3 + Math.random() * 0.55),
+      vx: (Math.random() - 0.5) * 0.25,
+      alpha: 0.10 + Math.random() * 0.22,
+      size: 10 + Math.floor(Math.random() * 6),
+      col: COLORS[Math.floor(Math.random() * COLORS.length)],
+      txt: snippets[Math.floor(Math.random() * snippets.length)],
+      life: 0, max: 250 + Math.random() * 350
+    };
+  }
+
+  function mkR() {
+    return {
+      x: Math.random() * W, y: -80,
+      sp: 1.2 + Math.random() * 2.2,
+      al: 0.05 + Math.random() * 0.12,
+      col: COLORS[Math.floor(Math.random() * COLORS.length)],
+      len: 40 + Math.random() * 100,
+      w: 0.8 + Math.random() * 1.2
+    };
+  }
+
+  resize();
+  for(var i=0;i<50;i++){var p=mkP();p.y=Math.random()*H;p.life=Math.random()*p.max;particles.push(p);}
+  for(var j=0;j<24;j++){var r=mkR();r.y=Math.random()*H;rain.push(r);}
+
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+
+    // Rain lines
+    for(var ri=0;ri<rain.length;ri++){
+      var dr=rain[ri];
+      var g=ctx.createLinearGradient(dr.x,dr.y,dr.x,dr.y+dr.len);
+      g.addColorStop(0,'transparent'); g.addColorStop(0.5,dr.col); g.addColorStop(1,'transparent');
+      ctx.save(); ctx.globalAlpha=dr.al; ctx.strokeStyle=g; ctx.lineWidth=dr.w;
+      ctx.beginPath(); ctx.moveTo(dr.x,dr.y); ctx.lineTo(dr.x,dr.y+dr.len); ctx.stroke();
+      ctx.restore();
+      dr.y+=dr.sp;
+      if(dr.y>H+120) rain[ri]=mkR();
+    }
+
+    // Code snippets
+    for(var pi=0;pi<particles.length;pi++){
+      var pt=particles[pi];
+      var fade=Math.min(pt.life/45,1)*Math.min((pt.max-pt.life)/45,1);
+      ctx.save(); ctx.globalAlpha=pt.alpha*fade; ctx.fillStyle=pt.col;
+      ctx.font=pt.size+'px "JetBrains Mono",monospace';
+      ctx.fillText(pt.txt,pt.x,pt.y);
+      ctx.restore();
+      pt.x+=pt.vx; pt.y+=pt.vy; pt.life++;
+      if(pt.life>pt.max||pt.y<-30) particles[pi]=mkP();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  draw();
+})();
+</script>
+</body>
+</html>
